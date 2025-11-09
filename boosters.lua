@@ -3,7 +3,7 @@ SMODS.Booster {
     loc_txt = {
         name = "Flunkle Pack",
         text = {
-            "A custom booster pack with unique cards."
+            [1] = 'A {C:purple}custom{} booster pack with {C:blue}unique{} cards.'
         },
         group_name = "flynnset_boosters"
     },
@@ -43,7 +43,7 @@ SMODS.Booster {
     loc_txt = {
         name = "what",
         text = {
-            "what"
+            [1] = 'what'
         },
         group_name = "flynnset_boosters"
     },
@@ -96,7 +96,7 @@ SMODS.Booster {
     loc_txt = {
         name = "OH GOD WHAT THE HELL???",
         text = {
-            "A custom booster pack with unique cards."
+            [1] = 'A {C:purple}custom{} booster pack with {C:blue}unique{} cards.'
         },
         group_name = "flynnset_boosters"
     },
@@ -147,7 +147,7 @@ SMODS.Booster {
     loc_txt = {
         name = "Gimmikal Pack",
         text = {
-            "gimmiko stuff ig"
+            [1] = 'gimmiko stuff ig'
         },
         group_name = "flynnset_boosters"
     },

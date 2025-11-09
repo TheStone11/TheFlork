@@ -29,6 +29,13 @@ SMODS.Consumable {
               }))
               delay(0.6)
             G.E_MANAGER:add_event(Event({
+     func = function()
+    play_sound("flynnsanity_evil")
+    
+    return true
+    end,
+}))
+            G.E_MANAGER:add_event(Event({
                   trigger = 'after',
                   delay = 0.4,
                   func = function()
@@ -41,6 +48,13 @@ SMODS.Consumable {
                   end
               }))
               delay(0.6)
+            G.E_MANAGER:add_event(Event({
+     func = function()
+    play_sound("flynnset_evil")
+    
+    return true
+    end,
+}))
             G.E_MANAGER:add_event(Event({
                   trigger = 'after',
                   delay = 0.4,

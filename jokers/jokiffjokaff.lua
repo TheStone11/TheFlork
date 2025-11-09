@@ -17,7 +17,7 @@ SMODS.Joker{ --Jokiff Jokaff
         }
     },
     pos = {
-        x = 3,
+        x = 2,
         y = 3
     },
     display_size = {

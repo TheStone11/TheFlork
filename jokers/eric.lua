@@ -18,7 +18,7 @@ SMODS.Joker{ --Eric
         }
     },
     pos = {
-        x = 3,
+        x = 1,
         y = 4
     },
     display_size = {

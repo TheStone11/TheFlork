@@ -18,7 +18,7 @@ SMODS.Joker{ --Gimmiko Fandom Wiki
         }
     },
     pos = {
-        x = 7,
+        x = 6,
         y = 3
     },
     display_size = {

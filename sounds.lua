@@ -3,7 +3,6 @@ SMODS.Sound{
     path="wooshpetscop.ogg",
     pitch=0.7,
     volume=0.6,
-    replace=""
 }
 
 SMODS.Sound{
@@ -11,5 +10,11 @@ SMODS.Sound{
     path="bonebreak.ogg",
     pitch=0.7,
     volume=0.6,
-    replace=""
+}
+
+SMODS.Sound{
+    key="evil",
+    path="evil.ogg",
+    pitch=0.7,
+    volume=0.6,
 }

@@ -15,7 +15,7 @@ SMODS.Joker{ --All Kels Go To Heaven
         }
     },
     pos = {
-        x = 8,
+        x = 7,
         y = 3
     },
     display_size = {

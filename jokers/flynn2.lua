@@ -14,7 +14,7 @@ SMODS.Joker{ --Flynn?
         }
     },
     pos = {
-        x = 5,
+        x = 4,
         y = 2
     },
     display_size = {
@@ -30,7 +30,7 @@ SMODS.Joker{ --Flynn?
     discovered = true,
     atlas = 'CustomJokers',
     soul_pos = {
-        x = 6,
+        x = 5,
         y = 2
     },
     in_pool = function(self, args)

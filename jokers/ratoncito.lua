@@ -14,8 +14,8 @@ SMODS.Joker{ --RATONCITO
         }
     },
     pos = {
-        x = 0,
-        y = 4
+        x = 9,
+        y = 3
     },
     display_size = {
         w = 71 * 1, 

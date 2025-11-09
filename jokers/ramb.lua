@@ -16,7 +16,7 @@ SMODS.Joker{ --Ramb
         }
     },
     pos = {
-        x = 9,
+        x = 8,
         y = 2
     },
     display_size = {
@@ -32,8 +32,8 @@ SMODS.Joker{ --Ramb
     discovered = true,
     atlas = 'CustomJokers',
     soul_pos = {
-        x = 0,
-        y = 3
+        x = 9,
+        y = 2
     },
     in_pool = function(self, args)
           return (
@@ -43,6 +43,17 @@ SMODS.Joker{ --Ramb
           )
           and true
       end,
+
+    loc_vars = function(self, info_queue, card)
+        
+        local info_queue_0 = G.P_CENTERS["c_immolate"]
+        if info_queue_0 then
+            info_queue[#info_queue + 1] = info_queue_0
+        else
+            error("JOKERFORGE: Invalid key in infoQueues. \"c_immolate\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
+        end
+        return {vars = {}}
+    end,
 
     
     calculate = function(self, card, context)

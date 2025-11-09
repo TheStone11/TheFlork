@@ -52,7 +52,7 @@ local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
-local jokerIndexList = {6,9,7,38,22,35,23,17,37,14,16,34,30,29,21,4,33,18,5,2,11,10,28,26,24,19,20,32,25,3,12,1,31,27,13,36,8,15}
+local jokerIndexList = {6,9,7,44,24,45,40,27,18,43,15,17,39,34,33,23,4,38,19,5,11,10,32,30,28,21,22,37,29,3,13,1,36,31,42,8,16,25,2,12,26,20,14,41,35}
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path
@@ -129,6 +129,7 @@ assert(SMODS.load_file("freakydeck.lua"))()
 assert(SMODS.load_file("zizoudeck.lua"))()
 
 assert(SMODS.load_file("flynndeck.lua"))()
+
 
 load_jokers_folder()
 load_consumables_folder()

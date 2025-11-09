@@ -15,7 +15,7 @@ SMODS.Joker{ --Sheriff
         }
     },
     pos = {
-        x = 7,
+        x = 6,
         y = 2
     },
     display_size = {
@@ -31,7 +31,7 @@ SMODS.Joker{ --Sheriff
     discovered = true,
     atlas = 'CustomJokers',
     soul_pos = {
-        x = 8,
+        x = 7,
         y = 2
     },
 

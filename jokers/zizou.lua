@@ -12,8 +12,9 @@ SMODS.Joker{ --Zizou
     loc_txt = {
         ['name'] = 'Zizou',
         ['text'] = {
-            [1] = 'If #1# Booster Packs are skipped, this joker creates Zizou Says Sybau',
-            [2] = 'Adds 10 times all other joker\'s sell price to score requirement'
+            [1] = 'When blind is selected',
+            [2] = 'Adds 10 times all other joker\'s sell price to score requirement, After #1# Booster Packs are skipped,',
+            [3] = 'this joker creates {C:attention}Zizou Says Sybau{}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -39,6 +40,12 @@ SMODS.Joker{ --Zizou
 
     loc_vars = function(self, info_queue, card)
         
+        local info_queue_0 = G.P_CENTERS["j_flynnset_zizousayssybau"]
+        if info_queue_0 then
+            info_queue[#info_queue + 1] = info_queue_0
+        else
+            error("JOKERFORGE: Invalid key in infoQueues. \"j_flynnset_zizousayssybau\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
+        end
         return {vars = {card.ability.extra.PackSkipped}}
     end,
 

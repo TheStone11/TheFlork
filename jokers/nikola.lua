@@ -9,7 +9,7 @@ SMODS.Joker{ --Nikola
     loc_txt = {
         ['name'] = 'Nikola',
         ['text'] = {
-            [1] = 'Create an Ethereal Tag at the end of the round'
+            [1] = 'X2 Score Requirement, create an Ethereal Tag at the end of the round'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

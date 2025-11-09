@@ -15,7 +15,7 @@ SMODS.Joker{ --Poop Yourself, Kid
         }
     },
     pos = {
-        x = 5,
+        x = 4,
         y = 3
     },
     display_size = {

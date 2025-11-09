@@ -5,12 +5,12 @@ SMODS.Consumable {
     config = { extra = {
         odds = 4,
         repetitions = 1,
-        levels = 16
+        levels = 5
     } },
     loc_txt = {
         name = 'The Hapoverse',
         text = {
-        [1] = 'Levels ups all hands alot of times, {C:green}#1# in 4 chance to create an EVIL Joker{}',
+        [1] = 'Levels ups all hands alot of times, creates an EVIL Joker',
         [2] = '{C:inactive}Welcome to the hapoverse, young hapoling{}'
     }
     },
@@ -19,13 +19,16 @@ SMODS.Consumable {
     discovered = true,
     hidden = false,
     can_repeat_soul = false,
-    atlas = 'CustomConsumables',
-    loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'c_flynnset_thehapoverse')
-        return {vars = {numerator, denominator}}
-    end,use = function(self, card, area, copier)
+    atlas = 'CustomConsumables',use = function(self, card, area, copier)
         local used_card = copier or card
-            if SMODS.pseudorandom_probability(card, 'group_0_b02fb121', 1, card.ability.extra.odds, 'c_flynnset_thehapoverse', false) then
+            G.E_MANAGER:add_event(Event({
+     func = function()
+    play_sound("flynnset_evil")
+    
+    return true
+    end,
+}))
+            if SMODS.pseudorandom_probability(card, 'group_0_b02fb121', 4, card.ability.extra.odds, 'c_flynnset_thehapoverse', true) then
                 
                 G.E_MANAGER:add_event(Event({
                   trigger = 'after',
@@ -76,10 +79,10 @@ SMODS.Consumable {
                     return true
                 end
             }))
-            update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, { level = '+'..tostring(16) })
+            update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, { level = '+'..tostring(5) })
             delay(1.3)
             for poker_hand_key, _ in pairs(G.GAME.hands) do
-                level_up_hand(card, poker_hand_key, true, 16)
+                level_up_hand(card, poker_hand_key, true, 5)
             end
             update_hand_text({ sound = 'button', volume = 0.7, pitch = 1.1, delay = 0 },
                 { mult = 0, chips = 0, handname = '', level = '' })

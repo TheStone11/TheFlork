@@ -16,7 +16,7 @@ SMODS.Joker{ --Balatinder
         }
     },
     pos = {
-        x = 6,
+        x = 5,
         y = 3
     },
     display_size = {

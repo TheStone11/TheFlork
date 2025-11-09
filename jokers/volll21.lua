@@ -15,7 +15,7 @@ SMODS.Joker{ --21 Voll
         }
     },
     pos = {
-        x = 2,
+        x = 0,
         y = 4
     },
     display_size = {

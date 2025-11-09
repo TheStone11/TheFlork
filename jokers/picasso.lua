@@ -14,7 +14,7 @@ SMODS.Joker{ --Picasso
         }
     },
     pos = {
-        x = 1,
+        x = 0,
         y = 3
     },
     display_size = {
