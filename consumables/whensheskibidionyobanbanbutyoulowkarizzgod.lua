@@ -4,7 +4,7 @@ SMODS.Consumable {
     pos = { x = 0, y = 0 },
     config = { extra = {
         double_limit = 6700000000000,
-        double_limit = 670000000
+        double_limit = 6700000000000
     } },
     loc_txt = {
         name = 'when she skibidi on yo banban but you lowk a rizz god',
