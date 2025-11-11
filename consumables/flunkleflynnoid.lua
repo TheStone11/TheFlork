@@ -30,7 +30,7 @@ SMODS.Consumable {
               delay(0.6)
             G.E_MANAGER:add_event(Event({
      func = function()
-    play_sound("flynnset_evil")
+    play_sound("flynnsanity_evil")
     
     return true
     end,
