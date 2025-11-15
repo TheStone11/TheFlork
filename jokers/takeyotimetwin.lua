@@ -3,13 +3,15 @@ SMODS.Joker{ --take yo time twin
     config = {
         extra = {
             chiploop = 25,
-            chips = 1
+            chips = -100,
+            repetitions = 100,
+            chips2 = 1
         }
     },
     loc_txt = {
         ['name'] = 'take yo time twin',
         ['text'] = {
-            [1] = '{C:blue}+1{} Chip 25 times',
+            [1] = 'wastes your time',
             [2] = 'yes the art is delagrat'
         },
         ['unlock'] = {
@@ -32,12 +34,11 @@ SMODS.Joker{ --take yo time twin
     unlocked = true,
     discovered = true,
     atlas = 'CustomJokers',
-    pools = { ["flynnset_flynnset_jokers"] = true },
     in_pool = function(self, args)
           return (
           not args 
-          or args.source ~= 'sho' 
-          or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+          or args.source ~= 'sho' and args.source ~= 'buf' and args.source ~= 'jud' 
+          or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
           )
           and true
       end,
@@ -52,12 +53,19 @@ SMODS.Joker{ --take yo time twin
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
             if true then
-                for i = 1, card.ability.extra.chiploop do
-                        SMODS.calculate_effect({chips = card.ability.extra.chips}, card)
+                return {
+                    chips = card.ability.extra.chips
+                    ,
+                    func = function()
+                        for i = 1, card.ability.extra.repetitions do
+                                SMODS.calculate_effect({chips = card.ability.extra.chips2}, card)
+                            end
+                            return true
+                            end
+                        }
                     end
                 end
             end
-        end
 }
 
 local check_for_buy_space_ref = G.FUNCS.check_for_buy_space

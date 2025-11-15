@@ -36,6 +36,14 @@ SMODS.Joker{ --Virtually Flynnsane
         x = 0,
         y = 5
     },
+    in_pool = function(self, args)
+          return (
+          not args 
+          or args.source ~= 'sho' and args.source ~= 'buf' and args.source ~= 'jud' 
+          or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+          )
+          and true
+      end,
 
     
     calculate = function(self, card, context)
