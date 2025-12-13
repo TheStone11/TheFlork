@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Grandpa
     key = "grandpa",
     config = {
@@ -5,7 +6,8 @@ SMODS.Joker{ --Grandpa
             odds = 8,
             d_six = 0,
             start_dissolve = 0,
-            n = 0
+            n = 0,
+            no = 0
         }
     },
     loc_txt = {
@@ -35,7 +37,7 @@ SMODS.Joker{ --Grandpa
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         local info_queue_0 = G.P_TAGS["tag_d_six"]
@@ -45,33 +47,32 @@ SMODS.Joker{ --Grandpa
             error("JOKERFORGE: Invalid key in infoQueues. \"tag_d_six\" isn't a valid Tag key, Did you misspell it or forgot a modprefix?")
         end
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_flynnset_grandpa') 
-        return {vars = {card.ability.extra.d_six, card.ability.extra.n, card.ability.extra.start_dissolve, new_numerator, new_denominator}}
+        return {vars = {new_numerator, new_denominator}}
     end,
-
     
     calculate = function(self, card, context)
-    if context.end_of_round and context.game_over == false and context.main_eval  and not context.blueprint then
-        return {
-            func = function()
-                G.E_MANAGER:add_event(Event({
+        if context.end_of_round and context.game_over == false and context.main_eval  and not context.blueprint then
+            return {
                 func = function()
-                    local tag = Tag("tag_d_six")
-                    if tag.name == "Orbital Tag" then
-                        local _poker_hands = {}
-                        for k, v in pairs(G.GAME.hands) do
-                            if v.visible then
-                                _poker_hands[#_poker_hands + 1] = k
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            local tag = Tag("tag_d_six")
+                            if tag.name == "Orbital Tag" then
+                                local _poker_hands = {}
+                                for k, v in pairs(G.GAME.hands) do
+                                    if v.visible then
+                                        _poker_hands[#_poker_hands + 1] = k
+                                    end
+                                end
+                                tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "jokerforge_orbital")
                             end
+                            tag:set_ability()
+                            add_tag(tag)
+                            play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                            return true
                         end
-                        tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "jokerforge_orbital")
-                    end
-                    tag:set_ability()
-                    add_tag(tag)
-                    play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                    }))
                     return true
-                    end
-                }))
-                return true
                 end,
                 message = "Created Tag!"
             }
@@ -79,12 +80,23 @@ SMODS.Joker{ --Grandpa
         if context.reroll_shop  and not context.blueprint then
             if true then
                 if SMODS.pseudorandom_probability(card, 'group_0_8dcf0d7c', 1, card.ability.extra.odds, 'j_flynnset_grandpa', false) then
-                        SMODS.calculate_effect({func = function()
-                            card:start_dissolve()
-                            return true
-                            end}, card)
+                    SMODS.calculate_effect({func = function()
+                        local target_joker = card
+                        
+                        if target_joker then
+                            target_joker.getting_sliced = true
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    target_joker:start_dissolve({G.C.RED}, nil, 1.6)
+                                    return true
+                                end
+                            }))
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Destroyed!", colour = G.C.RED})
                         end
-                    end
+                        return true
+                    end}, card)
                 end
             end
+        end
+    end
 }

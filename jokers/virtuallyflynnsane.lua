@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Virtually Flynnsane
     key = "virtuallyflynnsane",
     config = {
@@ -9,8 +10,9 @@ SMODS.Joker{ --Virtually Flynnsane
     loc_txt = {
         ['name'] = 'Virtually Flynnsane',
         ['text'] = {
-            [1] = 'Creates a {C:dark_edition}Negative{} Joker when hand is played',
-            [2] = 'created joker is added by flynnsanity'
+            [1] = 'Creates a Flynnsanity Joker when hand is played',
+            [2] = 'Does not require room, may overflow.'
+            --Dancing, walking, rearranging furniture
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -25,7 +27,7 @@ SMODS.Joker{ --Virtually Flynnsane
         h = 95 * 1
     },
     cost = 20,
-    rarity = "flynnset_flynnsane",
+    rarity = "flynnset_flynnatic",
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
@@ -37,27 +39,26 @@ SMODS.Joker{ --Virtually Flynnsane
         y = 5
     },
     in_pool = function(self, args)
-          return (
-          not args 
-          or args.source ~= 'sho' and args.source ~= 'buf' and args.source ~= 'jud' 
-          or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
-          )
-          and true
-      end,
-
+        return (
+            not args 
+            or args.source ~= 'sho' and args.source ~= 'buf' and args.source ~= 'jud' 
+            or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+        )
+        and true
+    end,
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  and not context.blueprint then
             local created_joker = true
             G.E_MANAGER:add_event(Event({
-            func = function()
-                local joker_card = SMODS.add_card({ set = 'flynnset_flynnset_jokers' })
-                if joker_card then
-                    joker_card:set_edition("e_negative", true)
+                func = function()
+                    local joker_card = SMODS.add_card({ set = 'flynnset_flynnset_jokers' })
+                    if joker_card then
+                        joker_card:set_edition(card.ability.extra.e_negative, true)
+                        
+                    end
                     
-                end
-                
-                return true
+                    return true
                 end
             }))
             return {

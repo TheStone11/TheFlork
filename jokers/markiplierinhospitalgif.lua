@@ -1,10 +1,12 @@
+
 SMODS.Joker{ --Markiplier in Hospital Gif
     key = "markiplierinhospitalgif",
     config = {
         extra = {
-            levels = 14,
+            levels0 = 14,
             explode = 0,
-            y = 0
+            y = 0,
+            no = 0
         }
     },
     loc_txt = {
@@ -33,21 +35,29 @@ SMODS.Joker{ --Markiplier in Hospital Gif
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
     
     calculate = function(self, card, context)
         if context.before and context.cardarea == G.jokers  and not context.blueprint then
             local target_hand = (context.scoring_name or "High Card")
+            level_up_hand(card, target_hand, true, 14)
             return {
-                level_up = card.ability.extra.levels,
-                level_up_hand = target_hand,
                 message = localize('k_level_up_ex'),
                 extra = {
-                func = function()
-                    card:explode()
-                    return true
+                    func = function()
+                        local target_joker = card
+                        
+                        if target_joker then
+                            target_joker.getting_sliced = true
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    target_joker:explode({G.C.RED}, nil, 1.6)
+                                    return true
+                                end
+                            }))
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Usually the first ante is not that bad- WHAT???", colour = G.C.RED})
+                        end
+                        return true
                     end,
-                    message = "Usually the first ante is not that bad- WHAT???",
                     colour = G.C.RED
                 }
             }

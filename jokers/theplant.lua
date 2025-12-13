@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --The Plant
     key = "theplant",
     config = {
@@ -34,12 +35,11 @@ SMODS.Joker{ --The Plant
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         return {vars = {card.ability.extra.MultStored}}
     end,
-
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
@@ -60,11 +60,11 @@ SMODS.Joker{ --The Plant
                 }
             end
         end
-    if context.end_of_round and context.main_eval and G.GAME.blind.boss  and not context.blueprint then
-        return {
-            func = function()
-                card.ability.extra.MultStored = 1
-                return true
+        if context.end_of_round and context.main_eval and G.GAME.blind.boss  and not context.blueprint then
+            return {
+                func = function()
+                    card.ability.extra.MultStored = 1
+                    return true
                 end,
                 message = "Reset!"
             }

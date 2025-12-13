@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Shogunate of Crows
     key = "shogunateofcrows",
     config = {
@@ -31,31 +32,30 @@ SMODS.Joker{ --Shogunate of Crows
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true },
-
     
     calculate = function(self, card, context)
-    if context.end_of_round and context.main_eval and G.GAME.blind.boss  then
-        return {
-            func = function()
-                G.E_MANAGER:add_event(Event({
+        if context.end_of_round and context.main_eval and G.GAME.blind.boss  then
+            return {
                 func = function()
-                    local tag = Tag("tag_coupon")
-                    if tag.name == "Orbital Tag" then
-                        local _poker_hands = {}
-                        for k, v in pairs(G.GAME.hands) do
-                            if v.visible then
-                                _poker_hands[#_poker_hands + 1] = k
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            local tag = Tag("tag_coupon")
+                            if tag.name == "Orbital Tag" then
+                                local _poker_hands = {}
+                                for k, v in pairs(G.GAME.hands) do
+                                    if v.visible then
+                                        _poker_hands[#_poker_hands + 1] = k
+                                    end
+                                end
+                                tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "jokerforge_orbital")
                             end
+                            tag:set_ability()
+                            add_tag(tag)
+                            play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                            return true
                         end
-                        tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "jokerforge_orbital")
-                    end
-                    tag:set_ability()
-                    add_tag(tag)
-                    play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                    }))
                     return true
-                    end
-                }))
-                return true
                 end,
                 message = "Created Tag!"
             }

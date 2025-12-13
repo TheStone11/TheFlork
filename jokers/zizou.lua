@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Zizou
     key = "zizou",
     config = {
@@ -6,7 +7,8 @@ SMODS.Joker{ --Zizou
             alljokerssellvalue = 0,
             respect = 0,
             explode = 0,
-            n = 0
+            n = 0,
+            no = 0
         }
     },
     loc_txt = {
@@ -14,7 +16,8 @@ SMODS.Joker{ --Zizou
         ['text'] = {
             [1] = 'When blind is selected',
             [2] = 'Adds 10 times all other joker\'s sell price to score requirement, After #1# Booster Packs are skipped,',
-            [3] = 'this joker creates {C:attention}Zizou Says Sybau{}'
+            [3] = 'this joker creates {C:attention}Zizou Says Sybau{}',
+            [4] = 'this joker does NOT condone the actions of Zizou.'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -37,7 +40,7 @@ SMODS.Joker{ --Zizou
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         local info_queue_0 = G.P_CENTERS["j_flynnset_zizousayssybau"]
@@ -46,61 +49,75 @@ SMODS.Joker{ --Zizou
         else
             error("JOKERFORGE: Invalid key in infoQueues. \"j_flynnset_zizousayssybau\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
         end
-        return {vars = {card.ability.extra.PackSkipped}}
+    return {vars = {card.ability.extra.PackSkipped, ((function() local total = 0; for _, joker in ipairs(G.jokers and (G.jokers and G.jokers.cards or {}) or {}) do total = total + joker.sell_cost end; return total end)()) * 10}}
     end,
-
     
     calculate = function(self, card, context)
         if context.setting_blind  and not context.blueprint then
             return {
+                
                 func = function()
-                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "+"..tostring(((function() local total = 0; for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do total = total + joker.sell_cost end; return total end)()) * 10).." Blind Size", colour = G.C.GREEN})
-                G.GAME.blind.chips = G.GAME.blind.chips + ((function() local total = 0; for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do total = total + joker.sell_cost end; return total end)()) * 10
-                    G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                    if G.GAME.blind.in_blind then
+                        
+                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "+"..tostring(((function() local total = 0; for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do total = total + joker.sell_cost end; return total end)()) * 10).." Blind Size", colour = G.C.GREEN})
+                    G.GAME.blind.chips = G.GAME.blind.chips + ((function() local total = 0; for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do total = total + joker.sell_cost end; return total end)()) * 10
+                        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
                         G.HUD_blind:recalculate()
                         return true
-                        end
-                    }
+                    end
                 end
-                if context.skipping_booster  and not context.blueprint then
-                    if (card.ability.extra.PackSkipped or 0) <= 1 then
-                        return {
+            }
+        end
+        if context.skipping_booster  and not context.blueprint then
+            if to_big((card.ability.extra.PackSkipped or 0)) <= to_big(1) then
+                return {
+                    func = function()
+                        
+                        local created_joker = true
+                        G.E_MANAGER:add_event(Event({
                             func = function()
-                                
-                                local created_joker = true
-                                G.E_MANAGER:add_event(Event({
-                                func = function()
-                                    local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_flynnset_zizousayssybau' })
-                                    if joker_card then
-                                        joker_card:set_edition("e_negative", true)
-                                        
-                                    end
+                                local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_flynnset_zizousayssybau' })
+                                if joker_card then
+                                    joker_card:set_edition(card.ability.extra.e_negative, true)
                                     
-                                    return true
+                                end
+                                
+                                return true
+                            end
+                        }))
+                        
+                        if created_joker then
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_joker'), colour = G.C.BLUE})
+                        end
+                        return true
+                    end,
+                    extra = {
+                        func = function()
+                            local target_joker = card
+                            
+                            if target_joker then
+                                target_joker.getting_sliced = true
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        target_joker:explode({G.C.RED}, nil, 1.6)
+                                        return true
                                     end
                                 }))
-                                
-                                if created_joker then
-                                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_joker'), colour = G.C.BLUE})
-                                end
-                                return true
-                                end,
-                                extra = {
-                                func = function()
-                                    card:explode()
-                                    return true
-                                    end,
-                                    colour = G.C.RED
-                                }
-                            }
-                        else
-                            return {
-                                func = function()
-                                    card.ability.extra.PackSkipped = math.max(0, (card.ability.extra.PackSkipped) - 1)
-                                    return true
-                                    end
-                                }
+                                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Destroyed!", colour = G.C.RED})
                             end
-                        end
+                            return true
+                        end,
+                        colour = G.C.RED
+                    }
+                }
+            else
+                return {
+                    func = function()
+                        card.ability.extra.PackSkipped = math.max(0, (card.ability.extra.PackSkipped) - 1)
+                        return true
                     end
+                }
+            end
+        end
+    end
 }

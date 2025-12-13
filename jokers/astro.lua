@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Astro
     key = "astro",
     config = {
@@ -36,12 +37,11 @@ SMODS.Joker{ --Astro
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         return {vars = {card.ability.extra.chips}}
     end,
-
     
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play  then

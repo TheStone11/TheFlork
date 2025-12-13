@@ -1,8 +1,10 @@
+
 SMODS.Joker{ --Zo
     key = "zo",
     config = {
         extra = {
-            Xmult = 4
+            hand_size_increase = '2',
+            xmult0 = 4
         }
     },
     loc_txt = {
@@ -31,20 +33,19 @@ SMODS.Joker{ --Zo
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true, ["flynnset_female"] = true },
-
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-                Xmult = card.ability.extra.Xmult
+                Xmult = 4
             }
         end
     end,
-
+    
     add_to_deck = function(self, card, from_debuff)
         G.hand:change_size(-2)
     end,
-
+    
     remove_from_deck = function(self, card, from_debuff)
         G.hand:change_size(2)
     end
