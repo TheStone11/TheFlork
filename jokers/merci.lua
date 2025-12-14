@@ -14,6 +14,7 @@ SMODS.Joker{ --Merci
         ['text'] = {
             [1] = '{C:attention}+1{} Hand Size for every {C:gold}$10{} you have',
             [2] = '{C:red}-1{} Discard (currently {C:attention}+#2#{} Hand Size)'
+            --MERCI IS A FAGGOT
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

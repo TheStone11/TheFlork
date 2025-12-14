@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+--Hello everybody my name is Markiplier
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
 SMODS.Joker{ --Markiplier in Hospital Gif
     key = "markiplierinhospitalgif",
     config = {
@@ -13,6 +17,7 @@ SMODS.Joker{ --Markiplier in Hospital Gif
         ['name'] = 'Markiplier in Hospital Gif',
         ['text'] = {
             [1] = 'Levels up played hand 14 times, {C:red}Self-Destructs{}'
+            --Was that the joke of '87? 
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

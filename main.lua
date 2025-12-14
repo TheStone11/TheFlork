@@ -52,7 +52,12 @@ local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
+<<<<<<< HEAD
 local jokerIndexList = {6,9,7,44,24,40,27,18,43,15,17,39,34,33,23,4,38,19,5,11,10,32,30,28,21,22,37,29,3,13,1,36,31,42,8,16,25,2,12,26,20,14,41,35}
+=======
+--jonklers load order
+local jokerIndexList = {6,9,7,24,40,44,27,18,43,15,17,39,34,33,23,4,38,19,5,11,10,32,30,28,21,22,37,29,3,13,1,36,31,42,8,16,25,2,12,26,20,14,41,35}
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path

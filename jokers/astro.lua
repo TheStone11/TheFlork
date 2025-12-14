@@ -15,6 +15,7 @@ SMODS.Joker{ --Astro
             [4] = '{s:2}meow mrow...{}',
             [5] = '',
             [6] = '{s:4}:3{}'
+            -- they be letting anybody in flynnsanity these days
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

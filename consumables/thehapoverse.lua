@@ -3,12 +3,20 @@ SMODS.Consumable {
     key = 'thehapoverse',
     set = 'Planet',
     pos = { x = 7, y = 0 },
+<<<<<<< HEAD
     config = { 
         extra = {
             odds = 4,
             repetitions = 1   
         } 
     },
+=======
+    config = { extra = {
+        odds = 4,
+        repetitions = 1,
+        levels = 5
+    } },
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
     loc_txt = {
         name = 'The Hapoverse',
         text = {

@@ -31,6 +31,7 @@ SMODS.Joker{ --21 Voll
     unlocked = true,
     discovered = true,
     atlas = 'CustomJokers',
+<<<<<<< HEAD
     in_pool = function(self, args)
         return (
             not args 
@@ -40,6 +41,9 @@ SMODS.Joker{ --21 Voll
         and true
     end,
     
+=======
+
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
     set_ability = function(self, card, initial)
         card:set_eternal(true)
         card:add_sticker('perishable', true)

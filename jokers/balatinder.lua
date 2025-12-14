@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+--yo what the FUCK was i cooking when making this joker bruh:sob:
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
 SMODS.Joker{ --Balatinder
     key = "balatinder",
     config = {
@@ -10,7 +14,7 @@ SMODS.Joker{ --Balatinder
     loc_txt = {
         ['name'] = 'Balatinder',
         ['text'] = {
-            [1] = 'Create a {X:tarot,C:white}Female{} {C:attention}joker{} when Blind is selected'
+            [1] = 'Create a {X:tarot,C:white}Female{} {C:attention}joker{} when Boss Blind is selected'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

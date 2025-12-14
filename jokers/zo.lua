@@ -11,6 +11,7 @@ SMODS.Joker{ --Zo
         ['name'] = 'Zo',
         ['text'] = {
             [1] = '{C:red}-2{} Hand Size, {X:mult,C:white}X4{} Mult'
+            --hey torn, wasn't this the lesbian demon from Gimmiko that you were in love with like 9 months ago? HAHAHAHA -Flynn
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
