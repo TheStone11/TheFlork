@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 --yo what the FUCK was i cooking when making this joker bruh:sob:
+=======
+<<<<<<< HEAD
+
+=======
+--yo what the FUCK was i cooking when making this joker bruh:sob:
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
+>>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
 SMODS.Joker{ --Balatinder
     key = "balatinder",
     config = {

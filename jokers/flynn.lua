@@ -3,7 +3,11 @@ SMODS.Joker{ --Flynn
     key = "flynn",
     config = {
         extra = {
+<<<<<<< HEAD
             emult0 = 2
+=======
+            emult0 = 1.3
+>>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
         }
     },
     loc_txt = {
@@ -52,7 +56,11 @@ SMODS.Joker{ --Flynn
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
             return {
+<<<<<<< HEAD
                 e_mult = 2,
+=======
+                e_mult = 1.3,
+>>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
                 message = "FLYNNTASTIC!"
             }
         end

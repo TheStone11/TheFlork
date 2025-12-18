@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Monaka
     key = "monaka",
     config = {
@@ -31,7 +32,7 @@ SMODS.Joker{ --Monaka
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         local info_queue_0 = G.P_CENTERS["c_flynnset_gimmikoncharm"]
@@ -42,7 +43,6 @@ SMODS.Joker{ --Monaka
         end
         return {vars = {}}
     end,
-
     
     calculate = function(self, card, context)
         if context.selling_self  then
@@ -51,13 +51,13 @@ SMODS.Joker{ --Monaka
                     
                     for i = 1, math.min(1, G.consumeables.config.card_limit - #G.consumeables.cards) do
                         G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.4,
-                        func = function()
-                            play_sound('timpani')
-                            SMODS.add_card({ set = 'what_are_these', key = 'c_flynnset_gimmikoncharm'})                            
-                            card:juice_up(0.3, 0.5)
-                            return true
+                            trigger = 'after',
+                            delay = 0.4,
+                            func = function()
+                                play_sound('timpani')
+                                SMODS.add_card({ set = 'what_are_these', key = 'c_flynnset_gimmikoncharm'})                            
+                                card:juice_up(0.3, 0.5)
+                                return true
                             end
                         }))
                     end
@@ -67,8 +67,8 @@ SMODS.Joker{ --Monaka
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_consumable'), colour = G.C.PURPLE})
                     end
                     return true
-                    end
-                }
-            end
+                end
+            }
         end
+    end
 }

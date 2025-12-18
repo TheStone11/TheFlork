@@ -69,6 +69,7 @@ end
 
 
 local consumableIndexList = {3,1,5,4,2,6}
+local consumableIndexList = {3,1,5,4,2,6}
 
 local function load_consumables_folder()
     local mod_path = SMODS.current_mod.path
@@ -94,6 +95,7 @@ local function load_consumables_folder()
 end
 
 
+local sealIndexList = {2,3,1}
 local sealIndexList = {2,3,1}
 
 local function load_seals_folder()
@@ -123,6 +125,7 @@ end
 assert(SMODS.load_file("sounds.lua"))()
 
 --hapoten is your favorite character (not up for debate)
+--hapoten is your favorite character (not up for debate)
 assert(SMODS.load_file("hapodeck.lua"))()
 
 --the evil and fucked-up file from hell that makes jumpscares, shoutouts to Nxkoo for giving me the code for this file, WE love you Nxkoo
@@ -132,8 +135,10 @@ assert(SMODS.load_file("jumpscare.lua"))
 assert(SMODS.load_file("freakydeck.lua"))()
 
 --this deck doesn't support Zizou
+--this deck doesn't support Zizou
 assert(SMODS.load_file("zizoudeck.lua"))()
 
+--flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
 --flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
 assert(SMODS.load_file("flynndeck.lua"))()
 
@@ -143,6 +148,8 @@ assert(SMODS.load_file("tags.lua"))()
 --this line loads the boss blinds
 assert(SMODS.load_file("blinds.lua"))()
 
+load_boosters_file()
+assert(SMODS.load_file("sounds.lua"))()
 load_boosters_file()
 assert(SMODS.load_file("sounds.lua"))()
 load_jokers_folder()
@@ -166,25 +173,32 @@ SMODS.ObjectType({
 SMODS.ObjectType({
     key = "flynnset_flynnset_jokers",
     --Oops, All Jokers!
+    --Oops, All Jokers!
     cards = {
         ["j_flynnset_allkelsgotoheaven"] = true,
+        ["j_flynnset_astro"] = true,
         ["j_flynnset_astro"] = true,
         ["j_flynnset_balatinder"] = true,
         ["j_flynnset_bingus"] = true,
         ["j_flynnset_cat"] = true,
         ["j_flynnset_dualityofman"] = true,
         ["j_flynnset_gimmiko"] = true,
+        ["j_flynnset_gimmiko"] = true,
         ["j_flynnset_gimmikofandomwiki"] = true,
+        ["j_flynnset_grandpa"] = true,
         ["j_flynnset_grandpa"] = true,
         ["j_flynnset_hapoten"] = true,
         ["j_flynnset_ihighlyrecommendyouchooseseal"] = true,
         ["j_flynnset_ika"] = true,
         ["j_flynnset_jackson"] = true,
         ["j_flynnset_jimbojr"] = true,
+        ["j_flynnset_jimbojr"] = true,
         ["j_flynnset_joki"] = true,
         ["j_flynnset_jokiffjokaff"] = true,
         ["j_flynnset_lenam"] = true,
         ["j_flynnset_markiplierinhospitalgif"] = true,
+        ["j_flynnset_merci"] = true,
+        ["j_flynnset_monaka"] = true,
         ["j_flynnset_merci"] = true,
         ["j_flynnset_monaka"] = true,
         ["j_flynnset_nikola"] = true,
@@ -202,6 +216,7 @@ SMODS.ObjectType({
 })
 
 SMODS.ObjectType({
+    --funny anecdote i was watching someone play the mod and had Balatinder and got really confused why was Egg considered a woman but i remembered i put it here
     --funny anecdote i was watching someone play the mod and had Balatinder and got really confused why was Egg considered a woman but i remembered i put it here
     key = "flynnset_female",
     cards = {
@@ -224,12 +239,17 @@ SMODS.ObjectType({
 
 SMODS.ObjectType({
     --gimmiko set because i cannot stop thinking about gimmiko, these jokers can be summoned by the Gimmikon's Charm consumable
+    --gimmiko set because i cannot stop thinking about gimmiko, these jokers can be summoned by the Gimmikon's Charm consumable
     key = "flynnset_gimmiko",
     cards = {
         ["j_flynnset_gimmiko"] = true,
         ["j_flynnset_grandpa"] = true,
+        ["j_flynnset_gimmiko"] = true,
+        ["j_flynnset_grandpa"] = true,
         ["j_flynnset_ika"] = true,
         ["j_flynnset_lenam"] = true,
+        ["j_flynnset_merci"] = true,
+        ["j_flynnset_monaka"] = true,
         ["j_flynnset_merci"] = true,
         ["j_flynnset_monaka"] = true,
         ["j_flynnset_picasso"] = true,
@@ -238,7 +258,15 @@ SMODS.ObjectType({
         ["j_flynnset_hapoten"]  = true,
         ["j_flynnset_zo"] = true
     }, 
+    }, 
 })
+
+
+SMODS.current_mod.optional_features = function()
+    return {
+        cardareas = {} 
+    }
+end
 
 
 SMODS.current_mod.optional_features = function()
