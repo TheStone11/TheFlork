@@ -1,7 +1,9 @@
+
 SMODS.Joker{ --Sprue
     key = "sprue",
     config = {
         extra = {
+            voucher_slots_increase = '1'
         }
     },
     loc_txt = {
@@ -30,15 +32,14 @@ SMODS.Joker{ --Sprue
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true, ["flynnset_female"] = true },
-
     
     calculate = function(self, card, context)
     end,
-
+    
     add_to_deck = function(self, card, from_debuff)
         SMODS.change_voucher_limit(1)
     end,
-
+    
     remove_from_deck = function(self, card, from_debuff)
         SMODS.change_voucher_limit(-1)
     end

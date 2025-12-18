@@ -6,7 +6,7 @@ SMODS.ConsumableType {
     shop_rate = 1,
     cards = {
         ['c_flynnset_whensheskibidionyobanbanbutyoulowkarizzgod'] = true,
-        ['c_flynnset_ringaroundtherosie'] = true,
+        ['c_flynnset_hugegamble'] = true,
         ['c_flynnset_flunkleflynnoid'] = true,
         ['c_flynnset_thegluttonousbeast'] = true,
         ['c_flynnset_jimbotron3000'] = true,

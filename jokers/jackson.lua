@@ -1,8 +1,9 @@
+
 SMODS.Joker{ --Jackson
     key = "jackson",
     config = {
         extra = {
-            chips = 25
+            chips0 = 25
         }
     },
     loc_txt = {
@@ -32,15 +33,14 @@ SMODS.Joker{ --Jackson
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
     
     calculate = function(self, card, context)
-    if context.individual and context.cardarea == G.hand and not context.end_of_round  then
-        if context.other_card:get_id() == 11 then
-            return {
-                chips = card.ability.extra.chips
-            }
+        if context.individual and context.cardarea == G.hand and not context.end_of_round  then
+            if context.other_card:get_id() == 11 then
+                return {
+                    chips = 25
+                }
+            end
         end
     end
-end
 }

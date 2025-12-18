@@ -1,8 +1,10 @@
+
 SMODS.Joker{ --The Mouth
     key = "themouth",
     config = {
         extra = {
-            chips = 0
+            chips = 0,
+            text = 0
         }
     },
     loc_txt = {
@@ -33,12 +35,11 @@ SMODS.Joker{ --The Mouth
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         return {vars = {card.ability.extra.chips}}
     end,
-
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then

@@ -1,8 +1,9 @@
+
 SMODS.Joker{ --All Kels Go To Heaven
     key = "allkelsgotoheaven",
     config = {
         extra = {
-            Xmult = 3
+            xmult0 = 3
         }
     },
     loc_txt = {
@@ -31,13 +32,12 @@ SMODS.Joker{ --All Kels Go To Heaven
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
             if context.scoring_name == "High Card" then
                 return {
-                    Xmult = card.ability.extra.Xmult
+                    Xmult = 3
                 }
             end
         end

@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Gimmiko
     key = "gimmiko",
     config = {
@@ -32,7 +33,7 @@ SMODS.Joker{ --Gimmiko
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         local info_queue_0 = G.P_CENTERS["m_lucky"]
@@ -43,7 +44,6 @@ SMODS.Joker{ --Gimmiko
         end
         return {vars = {card.ability.extra.GimmikalChips}}
     end,
-
     
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play  then

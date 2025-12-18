@@ -1,7 +1,9 @@
+
 SMODS.Joker{ --Ika
     key = "ika",
     config = {
         extra = {
+            booster_slots_increase = '2',
             MultStored = 1
         }
     },
@@ -31,15 +33,19 @@ SMODS.Joker{ --Ika
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true, ["flynnset_female"] = true },
-
+    
+    loc_vars = function(self, info_queue, card)
+        
+        return {vars = {card.ability.extra.MultStored}}
+    end,
     
     calculate = function(self, card, context)
     end,
-
+    
     add_to_deck = function(self, card, from_debuff)
         SMODS.change_booster_limit(2)
     end,
-
+    
     remove_from_deck = function(self, card, from_debuff)
         SMODS.change_booster_limit(-2)
     end

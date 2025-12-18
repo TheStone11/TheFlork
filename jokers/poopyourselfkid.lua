@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Poop Yourself, Kid
     key = "poopyourselfkid",
     config = {
@@ -8,7 +9,8 @@ SMODS.Joker{ --Poop Yourself, Kid
     loc_txt = {
         ['name'] = 'Poop Yourself, Kid',
         ['text'] = {
-            [1] = '{C:red}+5{} Mult for every Flush you played this run'
+            [1] = '{C:red}+5{} Mult for every {C:important}Flush{} you played this run',
+            [2] = 'This joker does not condone the actions of G-Zone btw.'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -31,7 +33,11 @@ SMODS.Joker{ --Poop Yourself, Kid
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
+    
+    loc_vars = function(self, info_queue, card)
+        
+        return {vars = {((G.GAME.hands['Flush'].played or 0)) * 5}}
+    end,
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then

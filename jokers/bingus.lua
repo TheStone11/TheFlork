@@ -1,8 +1,9 @@
+
 SMODS.Joker{ --Bingus
     key = "bingus",
     config = {
         extra = {
-            xchips = 3
+            xchips0 = 3
         }
     },
     loc_txt = {
@@ -31,13 +32,12 @@ SMODS.Joker{ --Bingus
     discovered = false,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
     
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play  then
             if SMODS.get_enhancements(context.other_card)["m_wild"] == true then
                 return {
-                    x_chips = card.ability.extra.xchips
+                    x_chips = 3
                 }
             end
         end
