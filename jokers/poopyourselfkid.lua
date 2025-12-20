@@ -9,7 +9,15 @@ SMODS.Joker{ --Poop Yourself, Kid
     loc_txt = {
         ['name'] = 'Poop Yourself, Kid',
         ['text'] = {
+<<<<<<< HEAD
             [1] = '{C:red}+5{} Mult for every {C:important}Flush{} you played this run',
+=======
+<<<<<<< HEAD
+            [1] = '{C:red}+5{} Mult for every {C:important}Flush{} you played this run',
+=======
+            [1] = '{C:red}+5{} Mult for every Flush you played this run',
+>>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
+>>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
             [2] = 'This joker does not condone the actions of G-Zone btw.'
         },
         ['unlock'] = {

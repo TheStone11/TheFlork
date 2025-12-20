@@ -129,12 +129,20 @@ SMODS.Blind {
         }
     },
     dollars = 8,
+<<<<<<< HEAD
     mult = 0.9,
+=======
+    mult = 1,
+>>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.drawing_cards and (G.GAME.current_round.hands_played ~= 0 or G.GAME.current_round.discards_used ~= 0) then
                 return {
+<<<<<<< HEAD
                     cards_to_draw = 1
+=======
+                    cards_to_draw = 2
+>>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
                 }
             end
         end

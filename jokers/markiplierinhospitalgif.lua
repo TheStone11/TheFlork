@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 --Hello everybody my name is Markiplier
+=======
+<<<<<<< HEAD
+--Hello everybody my name is Markiplier
+=======
+<<<<<<< HEAD
+
+=======
+--Hello everybody my name is Markiplier
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
+>>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
+>>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 SMODS.Joker{ --Markiplier in Hospital Gif
     key = "markiplierinhospitalgif",
     config = {
