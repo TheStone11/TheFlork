@@ -4,10 +4,15 @@ shitpost with over 40 jonklers, new consumable set, 4 decks, and... tags???
 CREDITS
 
 Flynn - producer, the guy that adds stuff to the mod
+
 Sophie - didn't do shit for the mod but she's my dog
+
 Astro - really cool guy, helped me sometimes
+
 Zizou - i am legally forced to credit him because of the gimmiko jokers, since Zizou made Gimmiko, genuinely insufferable idiot tho
+
 Yahiamice - guy who inspired flynnsanity
+
 Voll21 and Yummypizza491 - their OCs are featured in the mod, don't like them tho
 
 ascii horse
