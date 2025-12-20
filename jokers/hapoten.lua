@@ -1,15 +1,18 @@
+
 SMODS.Joker{ --Hapoten
     key = "hapoten",
     config = {
         extra = {
+            repetitions = 1
         }
     },
     loc_txt = {
         ['name'] = 'Hapoten',
         ['text'] = {
-            [1] = '{C:red}Y{}{C:blue}o{}{C:green}u{}{C:purple}r{} {C:attention}f{}{C:money}a{}{C:gold}v{}{C:inactive}o{}{C:default}r{}{C:hearts}i{}{C:clubs}t{}{C:diamonds}e{} {C:spades}c{}{C:tarot}h{}{C:planet}a{}{C:spectral}r{}{C:enhanced}a{}{C:common}c{}{C:uncommon}t{}{C:rare}e{}{C:legendary}r{}',
+            [1] = '{C:red}Y{}{C:blue}o{}{C:green}u{}{C:purple}r{} {C:attention}f{}{C:money}a{}{C:gold}v{}{C:inactive}o{}{C:default}r{}{C:hearts}i{}{C:clubs}t{}{C:diamonds}e{} {C:spades}c{}{C:tarot}h{}{C:planet}a{}{C:spectral}r{}{C:enhanced}a{}{C:common}c{}{C:uncommon}t{}{C:rare}e{}{C:legendary}r{}', --why is every letter a different color? because i can -Flynn
             [2] = '',
             [3] = '{C:inactive}(Does something if first hand of round contains only one card){}'
+            -- i know her ability is OP as hell but she's my favorite character in all of gimmiko so leave me alone 
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -31,8 +34,7 @@ SMODS.Joker{ --Hapoten
     unlocked = true,
     discovered = false,
     atlas = 'CustomJokers',
-    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true },
-
+    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then

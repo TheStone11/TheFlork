@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --The Hook
     key = "thehook",
     config = {
@@ -33,12 +34,11 @@ SMODS.Joker{ --The Hook
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         return {vars = {card.ability.extra.Chips}}
     end,
-
     
     calculate = function(self, card, context)
         if context.discard  then
@@ -46,21 +46,21 @@ SMODS.Joker{ --The Hook
                 func = function()
                     card.ability.extra.Chips = (card.ability.extra.Chips) + 5
                     return true
-                    end
-                }
-            end
+                end
+            }
+        end
         if context.end_of_round and context.game_over == false and context.main_eval  then
             return {
                 func = function()
-                    card.ability.extra.Chips = 0
+                    card.ability.extra.Chips = 1
                     return true
-                    end
-                }
-            end
-            if context.cardarea == G.jokers and context.joker_main  then
-                return {
-                    chips = card.ability.extra.Chips
-                }
-            end
+                end
+            }
         end
+        if context.cardarea == G.jokers and context.joker_main  then
+            return {
+                chips = card.ability.extra.Chips
+            }
+        end
+    end
 }

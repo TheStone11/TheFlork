@@ -25,6 +25,14 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "CustomJokers2", 
+    path = "jokers2revengeoftherobots.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
     key = "CustomConsumables", 
     path = "CustomConsumables.png", 
     px = 71,
@@ -52,7 +60,9 @@ local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
-local jokerIndexList = {6,9,7,44,24,45,40,27,18,43,15,17,39,34,33,23,4,38,19,5,11,10,32,30,28,21,22,37,29,3,13,1,36,31,42,8,16,25,2,12,26,20,14,41,35}
+--jonklers load order
+local jokerIndexList = {7,10,8,48,25,49,44,29,18,47,15,17,43,37,36,24,4,42,19,5,12,11,35,33,30,21,22,40,32,3,14,1,39,34,46,9,16,2,13,28,20,45,38,31,26,27,6,41,23}
+
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path
@@ -67,7 +77,7 @@ local function load_jokers_folder()
 end
 
 
-local consumableIndexList = {8,5,1,6,3,2,7,4}
+local consumableIndexList = {3,1,5,4,2,6}
 
 local function load_consumables_folder()
     local mod_path = SMODS.current_mod.path
@@ -93,7 +103,7 @@ local function load_consumables_folder()
 end
 
 
-local sealIndexList = {1,2}
+local sealIndexList = {2,3,1}
 
 local function load_seals_folder()
     local mod_path = SMODS.current_mod.path
@@ -119,18 +129,31 @@ local function load_boosters_file()
     assert(SMODS.load_file("boosters.lua"))()
 end
 
-load_boosters_file()
 assert(SMODS.load_file("sounds.lua"))()
 
+--hapoten is your favorite character (not up for debate)
 assert(SMODS.load_file("hapodeck.lua"))()
 
+--the evil and fucked-up file from hell that makes jumpscares, shoutouts to Nxkoo for giving me the code for this file, WE love you Nxkoo
+assert(SMODS.load_file("jumpscare.lua")) 
+
+--flynn when the hell did i make a freaky deck man that's wild
 assert(SMODS.load_file("freakydeck.lua"))()
 
+--this deck doesn't support Zizou
 assert(SMODS.load_file("zizoudeck.lua"))()
 
+--flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
 assert(SMODS.load_file("flynndeck.lua"))()
 
+--this thingamajig loads the tags
+assert(SMODS.load_file("tags.lua"))()
 
+--this line loads the boss blinds
+assert(SMODS.load_file("blinds.lua"))()
+
+load_boosters_file()
+assert(SMODS.load_file("sounds.lua"))()
 load_jokers_folder()
 load_consumables_folder()
 load_seals_folder()
@@ -151,23 +174,31 @@ SMODS.ObjectType({
 
 SMODS.ObjectType({
     key = "flynnset_flynnset_jokers",
+    --Oops, All Jokers!
     cards = {
         ["j_flynnset_allkelsgotoheaven"] = true,
-        ["j_flynnset_aromanticflagnikola"] = true,
+        ["j_flynnset_astro"] = true,
         ["j_flynnset_balatinder"] = true,
         ["j_flynnset_bingus"] = true,
         ["j_flynnset_cat"] = true,
+        ["j_flynnset_coralglasses"] = true,
         ["j_flynnset_dualityofman"] = true,
+        ["j_flynnset_gimmiko"] = true,
         ["j_flynnset_gimmikofandomwiki"] = true,
-        ["j_flynnset_goon"] = true,
+        ["j_flynnset_grandpa"] = true,
         ["j_flynnset_hapoten"] = true,
         ["j_flynnset_ihighlyrecommendyouchooseseal"] = true,
         ["j_flynnset_ika"] = true,
         ["j_flynnset_jackson"] = true,
+        ["j_flynnset_jimbojr"] = true,
         ["j_flynnset_joki"] = true,
         ["j_flynnset_jokiffjokaff"] = true,
+        ["j_flynnset_ladykaguya"] = true,
         ["j_flynnset_lenam"] = true,
         ["j_flynnset_markiplierinhospitalgif"] = true,
+        ["j_flynnset_marysue"] = true,
+        ["j_flynnset_mercury"] = true,
+        ["j_flynnset_monaka"] = true,
         ["j_flynnset_nikola"] = true,
         ["j_flynnset_poopyourselfkid"] = true,
         ["j_flynnset_ratoncito"] = true,
@@ -175,6 +206,7 @@ SMODS.ObjectType({
         ["j_flynnset_sprue"] = true,
         ["j_flynnset_theeye"] = true,
         ["j_flynnset_thehook"] = true,
+        ["j_flynnset_themiko"] = true,
         ["j_flynnset_themouth"] = true,
         ["j_flynnset_theplant"] = true,
         ["j_flynnset_zizou"] = true,
@@ -183,6 +215,7 @@ SMODS.ObjectType({
 })
 
 SMODS.ObjectType({
+    --funny anecdote i was watching someone play the mod and had Balatinder and got really confused why was Egg considered a woman but i remembered i put it here
     key = "flynnset_female",
     cards = {
         ["j_flynnset_cat"] = true,
@@ -193,18 +226,40 @@ SMODS.ObjectType({
         ["j_flynnset_thehook"] = true,
         ["j_flynnset_themouth"] = true,
         ["j_flynnset_theplant"] = true,
-        ["j_flynnset_zo"] = true
+        ["j_flynnset_zo"] = true,
+        ["j_flynnset_monaka"] = true,
+        ["j_blueprint"] = true,
+        ["j_brainstorm"] = true,
+        ["j_throwback"] = true,
+        ["j_flynnset_mercury"] = true,
+        ["j_flynnset_monaka"] = true,
+        ["j_flynnset_ladykaguya"] = true,
+        ["j_egg"] = true
     },
 })
 
 SMODS.ObjectType({
+    --gimmiko set because i cannot stop thinking about gimmiko, these jokers can be summoned by the Gimmikon's Charm consumable
     key = "flynnset_gimmiko",
     cards = {
+        ["j_flynnset_gimmiko"] = true,
         ["j_flynnset_ika"] = true,
+        ["j_flynnset_ladykaguya"] = true,
         ["j_flynnset_lenam"] = true,
+        ["j_flynnset_marysue"] = true,
+        ["j_flynnset_mercury"] = true,
+        ["j_flynnset_monaka"] = true,
         ["j_flynnset_picasso"] = true,
         ["j_flynnset_shogunateofcrows"] = true,
         ["j_flynnset_sprue"] = true,
+        ["j_flynnset_themiko"] = true,
         ["j_flynnset_zo"] = true
-    },
+    }, 
 })
+
+
+SMODS.current_mod.optional_features = function()
+    return {
+        cardareas = {} 
+    }
+end

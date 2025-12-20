@@ -1,25 +1,24 @@
+
 SMODS.Consumable {
     key = 'thegluttonousbeast',
     set = 'what_are_these',
-    pos = { x = 3, y = 0 },
-    config = { extra = {
-        add_cards_count = 5
-    } },
+    pos = { x = 4, y = 0 },
     loc_txt = {
         name = 'The Gluttonous Beast',
         text = {
-        [1] = 'Gives up to {C:attention}5{} cards in hand the Pluey seal',
-        [2] = 'Adds 5 EVIL cards to deck'
-    }
+            [1] = 'Gives up to {C:attention}5{} cards in hand the Pluey seal',
+            [2] = 'Adds 5 EVIL cards to deck'
+        }
     },
     cost = 3,
     unlocked = true,
     discovered = false,
     hidden = false,
     can_repeat_soul = false,
-    atlas = 'CustomConsumables',use = function(self, card, area, copier)
+    atlas = 'CustomConsumables',
+    use = function(self, card, area, copier)
         local used_card = copier or card
-        if #G.hand.highlighted >= 1 then
+        if to_big(#G.hand.highlighted) >= to_big(1) then
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.4,
@@ -85,9 +84,9 @@ SMODS.Consumable {
                         local _suit = nil
                         local enhancement = G.P_CENTERS['m_stone']
                         local new_card_params = { set = "Base" }
-                        if _rank then new_card_params.rank = _rank end
-                        if _suit then new_card_params.suit = _suit end
-                        if enhancement then new_card_params.enhancement = enhancement.key end
+                    if _rank then new_card_params.rank = _rank end
+                    if _suit then new_card_params.suit = _suit end
+                    if enhancement then new_card_params.enhancement = enhancement.key end
                         cards[i] = SMODS.add_card(new_card_params)
                         if cards[i] then
                             cards[i]:set_seal('flynnset_evil', nil, true)
@@ -101,6 +100,6 @@ SMODS.Consumable {
         end
     end,
     can_use = function(self, card)
-        return (#G.hand.highlighted >= 1)
+        return (to_big(#G.hand.highlighted) >= to_big(1))
     end
 }

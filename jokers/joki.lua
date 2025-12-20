@@ -1,8 +1,9 @@
+
 SMODS.Joker{ --Joki
     key = "joki",
     config = {
         extra = {
-            xchips = 1.2
+            xchips0 = 1.2
         }
     },
     loc_txt = {
@@ -31,12 +32,11 @@ SMODS.Joker{ --Joki
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-                x_chips = card.ability.extra.xchips
+                x_chips = 1.2
             }
         end
     end

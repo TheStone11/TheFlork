@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --The Eye
     key = "theeye",
     config = {
@@ -33,49 +34,47 @@ SMODS.Joker{ --The Eye
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true },
-
+    
     loc_vars = function(self, info_queue, card)
         
         return {vars = {card.ability.extra.Mult}}
     end,
-
     
     calculate = function(self, card, context)
         if context.before and context.cardarea == G.jokers  and not context.blueprint then
             if (function()
-                for i = 1, #G.jokers.cards do
-                    if G.jokers.cards[i].config.center.key == "j_flynnset_ratoncito" then
+                for i, v in pairs(G.jokers.cards) do
+                    if v.config.center.key == "j_flynnset_ratoncito" then 
                         return true
-                        end
                     end
-                    return false
-                    end)() then
-                        return {
-                            func = function()
-                                card.ability.extra.Mult = (card.ability.extra.Mult) + 0.1
-                                return true
-                                end
-                            }
-                        elseif G.GAME.hands[context.scoring_name] and G.GAME.hands[context.scoring_name].played_this_round > 1 then
-                            return {
-                                func = function()
-                                    card.ability.extra.Mult = 1
-                                    return true
-                                    end
-                                }
-                            else
-                                return {
-                                    func = function()
-                                        card.ability.extra.Mult = (card.ability.extra.Mult) + 0.1
-                                        return true
-                                        end
-                                    }
-                                end
-                            end
-                            if context.cardarea == G.jokers and context.joker_main  then
-                                return {
-                                    Xmult = card.ability.extra.Mult
-                                }
-                            end
-                        end
+                end
+            end)() then
+                return {
+                    func = function()
+                        card.ability.extra.Mult = (card.ability.extra.Mult) + 0.1
+                        return true
+                    end
+                }
+            elseif G.GAME.hands[context.scoring_name] and G.GAME.hands[context.scoring_name].played_this_round > 1 then
+                return {
+                    func = function()
+                        card.ability.extra.Mult = 1
+                        return true
+                    end
+                }
+            else
+                return {
+                    func = function()
+                        card.ability.extra.Mult = (card.ability.extra.Mult) + 0.1
+                        return true
+                    end
+                }
+            end
+        end
+        if context.cardarea == G.jokers and context.joker_main  then
+            return {
+                Xmult = card.ability.extra.Mult
+            }
+        end
+    end
 }

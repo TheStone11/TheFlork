@@ -9,6 +9,7 @@ SMODS.Joker{ --Monaka
         ['name'] = 'Monaka',
         ['text'] = {
             [1] = 'Sell this joker to create {C:spectral}Gimmikon\'s Charm{}'
+            --monaka is lowk top 2 best gimmiko characters
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
