@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Jokiff Jokaff
     key = "jokiffjokaff",
     config = {
@@ -33,7 +34,6 @@ SMODS.Joker{ --Jokiff Jokaff
     discovered = true,
     atlas = 'CustomJokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
-
     
     calculate = function(self, card, context)
         if context.setting_blind  then
@@ -45,14 +45,14 @@ SMODS.Joker{ --Jokiff Jokaff
                         created_joker = true
                         G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                         G.E_MANAGER:add_event(Event({
-                        func = function()
-                            local joker_card = SMODS.add_card({ set = 'flynnset_flynnset_jokers' })
-                            if joker_card then
-                                
-                                
-                            end
-                            G.GAME.joker_buffer = 0
-                            return true
+                            func = function()
+                                local joker_card = SMODS.add_card({ set = 'flynnset_flynnset_jokers' })
+                                if joker_card then
+                                    
+                                    
+                                end
+                                G.GAME.joker_buffer = 0
+                                return true
                             end
                         }))
                     end
@@ -60,8 +60,8 @@ SMODS.Joker{ --Jokiff Jokaff
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_joker'), colour = G.C.BLUE})
                     end
                     return true
-                    end
-                }
-            end
+                end
+            }
         end
+    end
 }

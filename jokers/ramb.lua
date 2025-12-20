@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Ramb
     key = "ramb",
     config = {
@@ -36,14 +37,14 @@ SMODS.Joker{ --Ramb
         y = 2
     },
     in_pool = function(self, args)
-          return (
-          not args 
-          or args.source ~= 'sho' 
-          or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
-          )
-          and true
-      end,
-
+        return (
+            not args 
+            or args.source ~= 'sho' 
+            or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+        )
+        and true
+    end,
+    
     loc_vars = function(self, info_queue, card)
         
         local info_queue_0 = G.P_CENTERS["c_immolate"]
@@ -54,7 +55,6 @@ SMODS.Joker{ --Ramb
         end
         return {vars = {}}
     end,
-
     
     calculate = function(self, card, context)
         if context.setting_blind  then
@@ -63,17 +63,17 @@ SMODS.Joker{ --Ramb
                     
                     for i = 1, 1 do
                         G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.4,
-                        func = function()
-                            if G.consumeables.config.card_limit > #G.consumeables.cards + G.GAME.consumeable_buffer then
-                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                            end
-                            
-                            play_sound('timpani')
-                            SMODS.add_card({ set = 'Spectral', edition = 'e_negative', key = 'c_immolate'})                            
-                            card:juice_up(0.3, 0.5)
-                            return true
+                            trigger = 'after',
+                            delay = 0.4,
+                            func = function()
+                                if G.consumeables.config.card_limit > #G.consumeables.cards + G.GAME.consumeable_buffer then
+                                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                end
+                                
+                                play_sound('timpani')
+                                SMODS.add_card({ set = 'Spectral', edition = 'e_negative', key = 'c_immolate'})                            
+                                card:juice_up(0.3, 0.5)
+                                return true
                             end
                         }))
                     end
@@ -83,8 +83,8 @@ SMODS.Joker{ --Ramb
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_spectral'), colour = G.C.SECONDARY_SET.Spectral})
                     end
                     return true
-                    end
-                }
-            end
+                end
+            }
         end
+    end
 }

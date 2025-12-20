@@ -1,8 +1,9 @@
+
 SMODS.Joker{ --Zizou Says Sybau
     key = "zizousayssybau",
     config = {
         extra = {
-            blind_size = 0.5
+            blind_size0 = 0.5
         }
     },
     loc_txt = {
@@ -35,28 +36,31 @@ SMODS.Joker{ --Zizou Says Sybau
         y = 0
     },
     in_pool = function(self, args)
-          return (
-          not args 
-          or args.source ~= 'sho' 
-          or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
-          )
-          and true
-      end,
-
+        return (
+            not args 
+            or args.source ~= 'sho' 
+            or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+        )
+        and true
+    end,
     
     calculate = function(self, card, context)
         if context.setting_blind  and not context.blueprint then
             if G.GAME.blind.boss then
                 return {
+                    
                     func = function()
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "SYBAU!!", colour = G.C.GREEN})
-                        G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blind_size
-                        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                        if G.GAME.blind.in_blind then
+                            
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "SYBAU!!", colour = G.C.GREEN})
+                            G.GAME.blind.chips = G.GAME.blind.chips * 0.5
+                            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
                             G.HUD_blind:recalculate()
                             return true
-                            end
-                        }
+                        end
                     end
-                end
+                }
             end
+        end
+    end
 }

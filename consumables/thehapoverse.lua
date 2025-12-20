@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = 'thehapoverse',
     set = 'Planet',
-    pos = { x = 6, y = 0 },
+    pos = { x = 7, y = 0 },
     config = { extra = {
         odds = 4,
         repetitions = 1,

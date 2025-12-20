@@ -1,3 +1,4 @@
+
 SMODS.Joker{ --Sheriff
     key = "sheriff",
     config = {
@@ -23,7 +24,7 @@ SMODS.Joker{ --Sheriff
         h = 95 * 1
     },
     cost = 20,
-    rarity = "flynnset_flynnsane",
+    rarity = "flynnset_flynnatic",
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
@@ -34,27 +35,26 @@ SMODS.Joker{ --Sheriff
         x = 7,
         y = 2
     },
-
     
     calculate = function(self, card, context)
         if context.setting_blind  and not context.blueprint then
             if G.GAME.blind.boss then
-                for i = 1, card.ability.extra.repetitions do
-                        SMODS.calculate_effect({func = function()
-                            if G.GAME.blind and G.GAME.blind.boss and not G.GAME.blind.disabled then
-                                G.E_MANAGER:add_event(Event({
+                for i = 1, 3 do
+                    SMODS.calculate_effect({func = function()
+                        if G.GAME.blind and G.GAME.blind.boss and not G.GAME.blind.disabled then
+                            G.E_MANAGER:add_event(Event({
                                 func = function()
                                     G.GAME.blind:disable()
                                     play_sound('timpani')
                                     return true
-                                    end
-                                }))
-                                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "JUSTICE!", colour = G.C.GREEN})
-                            end
-                            return true
-                            end}, card)
+                                end
+                            }))
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "JUSTICE!", colour = G.C.GREEN})
                         end
-                    end
+                        return true
+                    end}, card)
                 end
             end
+        end
+    end
 }

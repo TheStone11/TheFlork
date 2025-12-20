@@ -14,14 +14,14 @@ SMODS.Rarity {
 }
 
 SMODS.Rarity {
-    key = "flynnsane",
+    key = "flynnatic",
     pools = {
         ["Joker"] = true
     },
     default_weight = 0,
     badge_colour = HEX('0dff9b'),
     loc_txt = {
-        name = "FLYNNSANE"
+        name = "FLYNNATIC"
     },
     get_weight = function(self, weight, object_type)
         return weight
