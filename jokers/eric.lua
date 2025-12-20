@@ -1,10 +1,11 @@
+
 SMODS.Joker{ --Eric
     key = "eric",
     config = {
         extra = {
+            chips0 = -491,
             chips = -491,
-            chips2 = -491,
-            chips3 = -491
+            chips2 = -491
         }
     },
     loc_txt = {
@@ -33,35 +34,52 @@ SMODS.Joker{ --Eric
     unlocked = true,
     discovered = true,
     atlas = 'CustomJokers',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    in_pool = function(self, args)
+        return (
+            not args 
+            or args.source ~= 'sho' 
+            or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+        )
+        and true
+    end,
+    
+=======
+>>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
+>>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
     set_ability = function(self, card, initial)
         card:set_eternal(true)
         card:add_sticker('perishable', true)
     end,
-
     
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play  and not context.blueprint then
             if context.other_card:get_id() == 4 then
                 return {
-                    chips = card.ability.extra.chips
+                    chips = -491
                 }
             elseif context.other_card:get_id() == 9 then
                 return {
-                    chips = card.ability.extra.chips2
+                    chips = -491
                 }
             elseif context.other_card:get_id() == 14 then
                 return {
-                    chips = card.ability.extra.chips3
+                    chips = -491
                 }
             end
         end
     end,
-
+    
     add_to_deck = function(self, card, from_debuff)
         G.jokers.config.card_limit = G.jokers.config.card_limit + 1
     end,
-
+    
     remove_from_deck = function(self, card, from_debuff)
         G.jokers.config.card_limit = G.jokers.config.card_limit - 1
     end

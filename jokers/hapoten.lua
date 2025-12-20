@@ -34,38 +34,53 @@ SMODS.Joker{ --Hapoten
     unlocked = true,
     discovered = false,
     atlas = 'CustomJokers',
+<<<<<<< HEAD
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
+=======
+<<<<<<< HEAD
+    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
+=======
+<<<<<<< HEAD
+    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true },
+=======
+    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
+>>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
+>>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
+>>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
-            if (G.GAME.current_round.hands_played == 0 and #context.scoring_hand == 1) then
-                for i = 1, pseudorandom('repetitions_46b9d2d3', 3, 5) do
+            if (G.GAME.current_round.hands_played == 0 and to_big(#context.scoring_hand) == to_big(1)) then
+                for i = 1, card.ability.extra.repetitions do
                     local card_front = pseudorandom_element(G.P_CARDS, pseudoseed('add_card_hand'))
                     local base_card = create_playing_card({
-                    front = card_front,
-                    center = 
-                    pseudorandom_element({G.P_CENTERS.m_gold, G.P_CENTERS.m_steel, G.P_CENTERS.m_glass, G.P_CENTERS.m_wild, G.P_CENTERS.m_mult, G.P_CENTERS.m_lucky, G.P_CENTERS.m_stone}, pseudoseed('add_card_enhancement'))
-                }, G.discard, true, false, nil, true)
-                base_card:set_edition(pseudorandom_element({'e_foil','e_holo','e_polychrome','e_negative'}, pseudoseed('add_card_edition')), true)
-                
-                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-                local new_card = copy_card(base_card, nil, nil, G.playing_card)
-                new_card:add_to_deck()
-                G.deck.config.card_limit = G.deck.config.card_limit + 1
-                G.deck:emplace(new_card)
-                table.insert(G.playing_cards, new_card)
-                
-                base_card:remove()
-                
-                G.E_MANAGER:add_event(Event({
-                func = function() 
-                    new_card:start_materialize()
-                    return true
-                    end
-                }))
-                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Added Card!", colour = G.C.GREEN})
+                        front = card_front,
+                        center = pseudorandom_element({G.P_CENTERS.m_gold, G.P_CENTERS.m_steel, G.P_CENTERS.m_glass, G.P_CENTERS.m_wild, G.P_CENTERS.m_mult, G.P_CENTERS.m_lucky, G.P_CENTERS.m_stone}, pseudoseed('add_card_hand_enhancement'))
+                    }, G.discard, true, false, nil, true)
+                    
+                    
+                    base_card:set_edition(pseudorandom_element({'e_foil','e_holo','e_polychrome','e_negative'}, pseudoseed('add_card_hand_edition')), true)
+                    
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local new_card = copy_card(base_card, nil, nil, G.playing_card)
+                    
+                    new_card:add_to_deck()
+                    
+                    G.deck.config.card_limit = G.deck.config.card_limit + 1
+                    G.deck:emplace(new_card)
+                    table.insert(G.playing_cards, new_card)
+                    
+                    base_card:remove()
+                    
+                    G.E_MANAGER:add_event(Event({
+                        func = function() 
+                            new_card:start_materialize()
+                            return true
+                        end
+                    }))
+                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Added Card!", colour = G.C.GREEN})
+                end
             end
         end
     end
-end
 }
