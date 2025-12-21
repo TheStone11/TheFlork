@@ -9,11 +9,10 @@ Sophie - didn't do shit for the mod but she's my dog
 
 Astro - really cool guy, helped me sometimes
 
-Zizou - i am legally forced to credit him because of the gimmiko jokers, since Zizou made Gimmiko, genuinely insufferable idiot tho
+Zizou - i am legally forced to credit him because of the gimmiko jokers, since Zizou made Gimmiko
 
 Yahiamice - guy who inspired flynnsanity
 
-Voll21 and Yummypizza491 - their OCs are featured in the mod, don't like them tho
 
 ascii horse
 ⠀⠀⠀⠀⠀⠀⢀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
