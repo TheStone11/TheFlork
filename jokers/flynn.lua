@@ -10,7 +10,7 @@ SMODS.Joker{ --Flynn
     loc_txt = {
         ['name'] = 'Flynn',
         ['text'] = {
-            --EXPONENTIATION!!!!!!!! 
+            --EXPONENTIATION!!!!!!!! this is the ONLY joker that uses exponentiation, doing absolutely nothing if you don't have Talisman enabled
             [1] = '{X:red,C:white}^2{} Mult',
             [2] = '',
             [3] = 'hey, i am flynn',
@@ -60,6 +60,7 @@ SMODS.Joker{ --Flynn
         end
         if context.selling_self  and not context.blueprint then
             error("die")
+            --this is fully intentional the game crashes when you try to sell Flynn because doing so would make you a horrible monster that should be ashamed of their actions
         end
     end
 }

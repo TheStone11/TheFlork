@@ -10,7 +10,7 @@ SMODS.Joker{ --Nikola
     loc_txt = {
         ['name'] = 'Nikola',
         ['text'] = {
-            [1] = 'X2 Score Requirement, create an Ethereal Tag at the end of the round'
+            [1] = 'Create an Ethereal Tag at the end of the round'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -35,22 +35,7 @@ SMODS.Joker{ --Nikola
     pools = { ["flynnset_flynnset_jokers"] = true },
     
     calculate = function(self, card, context)
-        if context.setting_blind  and not context.blueprint then
-            return {
-                
-                func = function()
-                    if G.GAME.blind.in_blind then
-                        
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "X"..tostring(2).." Blind Size", colour = G.C.GREEN})
-                        G.GAME.blind.chips = G.GAME.blind.chips * 2
-                        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
-                        G.HUD_blind:recalculate()
-                        return true
-                    end
-                end
-            }
-        end
-        if context.end_of_round and context.game_over == false and context.main_eval  and not context.blueprint then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             return {
                 func = function()
                     G.E_MANAGER:add_event(Event({

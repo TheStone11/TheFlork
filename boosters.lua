@@ -95,14 +95,14 @@ SMODS.Booster {
     SMODS.Booster {
         key = 'oh_god_what_the_hell',
         loc_txt = {
-            name = "OH GOD WHAT THE HELL???",
+            name = "Mega Standard Pack...?",
             text = {
                 [1] = '???'
             },
             group_name = "flynnset_boosters"
         },
         config = { extra = 64, choose = 5 },
-        cost = 60,
+        cost = 25,
         weight = 0.3,
         atlas = "CustomBoosters",
         pos = { x = 2, y = 0 },

@@ -11,7 +11,7 @@ SMODS.Joker{ --Dilecta Uxor
         ['name'] = 'Dilecta Uxor',
         ['text'] = {
             [1] = 'Create an {C:enhanced}Enhanced{}, {C:dark_edition}Editioned{}, playing card when a card is scored',
-            [2] = '{X:red,C:white}X0.1{} Mult for every card in your full deck',
+            [2] = '{X:red,C:white}X0.2{} Mult for every card in your full deck',
             [3] = '{C:inactive}Currently {}{X:red,C:white}X#1#{} {C:inactive}Mult{}',
             [4] = '{C:inactive}Omnes Hapoten amant.{}' -- "Everyone loves Hapoten."
         },
@@ -88,7 +88,7 @@ SMODS.Joker{ --Dilecta Uxor
         end
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-                Xmult = card.ability.extra.cardsindeck + (#(G.deck and G.deck.cards or {})) * 0.1
+                Xmult = card.ability.extra.cardsindeck + (#(G.deck and G.deck.cards or {})) * 0.2
             }
         end
     end

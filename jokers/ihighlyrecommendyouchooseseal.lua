@@ -9,7 +9,7 @@ SMODS.Joker{ --I highly recommend you choose Seal
     loc_txt = {
         ['name'] = 'I highly recommend you choose Seal',
         ['text'] = {
-            [1] = 'Create 3 cards with Seals if first hand of round  contains a {C:attention}Three of a Kind{}'
+            [1] = 'Create 3 cards with Seals if first hand of round contains a {C:attention}Three of a Kind{}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

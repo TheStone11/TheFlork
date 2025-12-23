@@ -9,7 +9,8 @@ SMODS.Joker{ --Mary Sue
     loc_txt = {
         ['name'] = 'Mary Sue',
         ['text'] = {
-            [1] = '{X:red,C:white}X#1# {} Mult, loses {X:red,C:white}X2{} Mult when a card is sold'
+            [1] = '{X:red,C:white}X#1# {} Mult, loses {X:red,C:white}X1{} Mult when a card is sold'
+            --live laugh love mary sue
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

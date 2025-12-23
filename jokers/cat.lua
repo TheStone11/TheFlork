@@ -12,7 +12,7 @@ SMODS.Joker{ --cat
         }
     },
     loc_txt = {
-        ['name'] = 'cat',
+        ['name'] = 'cat', -- her name is "cat" in lowercase, get it right
         ['text'] = {
             [1] = 'If played hand contains more than one card, {C:red}tear apart the fabric of the universe{}'
         },

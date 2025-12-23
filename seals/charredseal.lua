@@ -7,7 +7,7 @@ SMODS.Seal {
             levels0 = 1
         }
     },
-    badge_colour = HEX('000000'),
+    badge_colour = HEX('#65d365ff'),
     loc_txt = {
         name = 'Charred Seal',
         label = 'Charred Seal',
