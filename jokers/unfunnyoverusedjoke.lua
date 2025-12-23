@@ -1,9 +1,8 @@
-
 SMODS.Joker{ --Unfunny Overused Joke
     key = "unfunnyoverusedjoke",
     config = {
         extra = {
-            dollars0 = 25
+            dollars = 25
         }
     },
     loc_txt = {
@@ -32,44 +31,45 @@ SMODS.Joker{ --Unfunny Overused Joke
     discovered = false,
     atlas = 'CustomJokers',
     in_pool = function(self, args)
-        return (
-            not args 
-            or args.source ~= 'sho' and args.source ~= 'buf' and args.source ~= 'jud' 
-            or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
-        )
-        and true
-    end,
-    
+          return (
+          not args 
+          or args.source ~= 'sho' and args.source ~= 'buf' and args.source ~= 'jud' 
+          or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+          )
+          and true
+      end,
+
     set_ability = function(self, card, initial)
         card:set_eternal(true)
         card:add_sticker('perishable', true)
         card:set_edition("e_negative", true)
     end,
+
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  and not context.blueprint then
             if (function()
-                local count = 0
-                for _, playing_card in pairs(context.scoring_hand or {}) do
-                    if context.scoring_hand:is_suit("Spades") then
-                        count = count + 1
+                local suitCount = 0
+                for i, c in ipairs(context.scoring_hand) do
+                    if c:is_suit("Spades") then
+                        suitCount = suitCount + 1
                     end
                 end
-                return count >= 1
-            end)() then
-                return {
-                    
-                    func = function()
-                        
+                
+                return suitCount >= 1
+                end)() then
+                    return {
+                        func = function()
+
                         local current_dollars = G.GAME.dollars
                         local target_dollars = G.GAME.dollars - 25
                         local dollar_value = target_dollars - current_dollars
                         ease_dollars(dollar_value)
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "-"..tostring(25), colour = G.C.MONEY})
                         return true
-                    end
-                }
+                        end
+                    }
+                end
             end
         end
-    end
 }

@@ -61,12 +61,8 @@ to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
 --jonklers load order
-<<<<<<< HEAD
-local jokerIndexList = {7,10,8,48,25,49,44,29,18,47,15,17,43,37,36,24,4,42,19,5,12,11,35,33,30,21,22,40,32,3,14,1,39,34,46,9,16,2,13,28,20,45,38,31,26,27,6,41,23}
+local jokerIndexList = {7,10,8,48,25,44,29,18,47,15,17,43,37,36,24,4,42,19,5,12,11,35,33,30,21,22,40,32,3,14,1,39,34,46,9,16,2,13,28,20,45,38,31,26,27,6,41,23}
 
-=======
-local jokerIndexList = {6,9,7,24,40,27,18,43,15,17,39,34,33,23,4,38,19,5,11,10,32,30,28,21,22,37,29,3,13,1,36,31,42,8,16,25,2,12,26,20,14,41,35}
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path
@@ -81,11 +77,7 @@ local function load_jokers_folder()
 end
 
 
-local consumableIndexList = {3,1,5,4,2,6}
-<<<<<<< HEAD
-=======
-local consumableIndexList = {3,1,5,4,2,6}
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
+local consumableIndexList = {3,1,5,4,2}
 
 local function load_consumables_folder()
     local mod_path = SMODS.current_mod.path
@@ -112,10 +104,6 @@ end
 
 
 local sealIndexList = {2,3,1}
-<<<<<<< HEAD
-=======
-local sealIndexList = {2,3,1}
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 
 local function load_seals_folder()
     local mod_path = SMODS.current_mod.path
@@ -144,10 +132,6 @@ end
 assert(SMODS.load_file("sounds.lua"))()
 
 --hapoten is your favorite character (not up for debate)
-<<<<<<< HEAD
-=======
---hapoten is your favorite character (not up for debate)
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 assert(SMODS.load_file("hapodeck.lua"))()
 
 --the evil and fucked-up file from hell that makes jumpscares, shoutouts to Nxkoo for giving me the code for this file, WE love you Nxkoo
@@ -157,17 +141,9 @@ assert(SMODS.load_file("jumpscare.lua"))
 assert(SMODS.load_file("freakydeck.lua"))()
 
 --this deck doesn't support Zizou
-<<<<<<< HEAD
 assert(SMODS.load_file("zizoudeck.lua"))()
 
 --flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
-=======
---this deck doesn't support Zizou
-assert(SMODS.load_file("zizoudeck.lua"))()
-
---flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
---flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 assert(SMODS.load_file("flynndeck.lua"))()
 
 --this thingamajig loads the tags
@@ -178,11 +154,6 @@ assert(SMODS.load_file("blinds.lua"))()
 
 load_boosters_file()
 assert(SMODS.load_file("sounds.lua"))()
-<<<<<<< HEAD
-=======
-load_boosters_file()
-assert(SMODS.load_file("sounds.lua"))()
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 load_jokers_folder()
 load_consumables_folder()
 load_seals_folder()
@@ -204,54 +175,29 @@ SMODS.ObjectType({
 SMODS.ObjectType({
     key = "flynnset_flynnset_jokers",
     --Oops, All Jokers!
-<<<<<<< HEAD
     cards = {
         ["j_flynnset_allkelsgotoheaven"] = true,
         ["j_flynnset_astro"] = true,
-=======
-    --Oops, All Jokers!
-    cards = {
-        ["j_flynnset_allkelsgotoheaven"] = true,
-        ["j_flynnset_astro"] = true,
-        ["j_flynnset_astro"] = true,
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
         ["j_flynnset_balatinder"] = true,
         ["j_flynnset_bingus"] = true,
         ["j_flynnset_cat"] = true,
         ["j_flynnset_coralglasses"] = true,
         ["j_flynnset_dualityofman"] = true,
         ["j_flynnset_gimmiko"] = true,
-<<<<<<< HEAD
         ["j_flynnset_gimmikofandomwiki"] = true,
         ["j_flynnset_grandpa"] = true,
-=======
-        ["j_flynnset_gimmiko"] = true,
-        ["j_flynnset_gimmikofandomwiki"] = true,
-        ["j_flynnset_grandpa"] = true,
-        ["j_flynnset_grandpa"] = true,
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
         ["j_flynnset_hapoten"] = true,
         ["j_flynnset_ihighlyrecommendyouchooseseal"] = true,
         ["j_flynnset_ika"] = true,
         ["j_flynnset_jackson"] = true,
         ["j_flynnset_jimbojr"] = true,
-<<<<<<< HEAD
-=======
-        ["j_flynnset_jimbojr"] = true,
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
         ["j_flynnset_joki"] = true,
         ["j_flynnset_jokiffjokaff"] = true,
         ["j_flynnset_ladykaguya"] = true,
         ["j_flynnset_lenam"] = true,
         ["j_flynnset_markiplierinhospitalgif"] = true,
-<<<<<<< HEAD
         ["j_flynnset_marysue"] = true,
         ["j_flynnset_mercury"] = true,
-=======
-        ["j_flynnset_merci"] = true,
-        ["j_flynnset_monaka"] = true,
-        ["j_flynnset_merci"] = true,
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
         ["j_flynnset_monaka"] = true,
         ["j_flynnset_nikola"] = true,
         ["j_flynnset_poopyourselfkid"] = true,
@@ -270,10 +216,6 @@ SMODS.ObjectType({
 
 SMODS.ObjectType({
     --funny anecdote i was watching someone play the mod and had Balatinder and got really confused why was Egg considered a woman but i remembered i put it here
-<<<<<<< HEAD
-=======
-    --funny anecdote i was watching someone play the mod and had Balatinder and got really confused why was Egg considered a woman but i remembered i put it here
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
     key = "flynnset_female",
     cards = {
         ["j_flynnset_cat"] = true,
@@ -289,56 +231,30 @@ SMODS.ObjectType({
         ["j_blueprint"] = true,
         ["j_brainstorm"] = true,
         ["j_throwback"] = true,
-<<<<<<< HEAD
         ["j_flynnset_mercury"] = true,
         ["j_flynnset_monaka"] = true,
         ["j_flynnset_ladykaguya"] = true,
-=======
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
         ["j_egg"] = true
     },
 })
 
 SMODS.ObjectType({
     --gimmiko set because i cannot stop thinking about gimmiko, these jokers can be summoned by the Gimmikon's Charm consumable
-<<<<<<< HEAD
     key = "flynnset_gimmiko",
     cards = {
         ["j_flynnset_gimmiko"] = true,
-=======
-    --gimmiko set because i cannot stop thinking about gimmiko, these jokers can be summoned by the Gimmikon's Charm consumable
-    key = "flynnset_gimmiko",
-    cards = {
-        ["j_flynnset_gimmiko"] = true,
-        ["j_flynnset_grandpa"] = true,
-        ["j_flynnset_gimmiko"] = true,
-        ["j_flynnset_grandpa"] = true,
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
         ["j_flynnset_ika"] = true,
         ["j_flynnset_ladykaguya"] = true,
         ["j_flynnset_lenam"] = true,
-<<<<<<< HEAD
         ["j_flynnset_marysue"] = true,
         ["j_flynnset_mercury"] = true,
-=======
-        ["j_flynnset_merci"] = true,
-        ["j_flynnset_monaka"] = true,
-        ["j_flynnset_merci"] = true,
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
         ["j_flynnset_monaka"] = true,
         ["j_flynnset_picasso"] = true,
         ["j_flynnset_shogunateofcrows"] = true,
         ["j_flynnset_sprue"] = true,
-<<<<<<< HEAD
         ["j_flynnset_themiko"] = true,
         ["j_flynnset_zo"] = true
     }, 
-=======
-        ["j_flynnset_hapoten"]  = true,
-        ["j_flynnset_zo"] = true
-    }, 
-    }, 
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 })
 
 
@@ -346,14 +262,8 @@ SMODS.current_mod.optional_features = function()
     return {
         cardareas = {} 
     }
-<<<<<<< HEAD
-=======
 end
 
-
-SMODS.current_mod.optional_features = function()
-    return {
-        cardareas = {} 
-    }
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
+if next(SMODS.find_mod("Cryptid")) then
+   assert(SMODS.load_file("dilectauxor.lua"))()
 end

@@ -9,7 +9,7 @@ SMODS.Joker{ --Please Jimbo i NEED this!
         ['name'] = 'Please Jimbo i NEED this!',
         ['text'] = {
             [1] = 'My {C:legendary}mom{} is kinda {C:attention}homeless...{}',
-            [2] = '(creates a {C:tarot}Tarot{} card if played hand contains a {C:attention}Full House{}'
+            [2] = '(creates a {C:tarot}Tarot{} card if played hand contains a {C:attention}Full House{})'
             },
             ['unlock'] = {
                 [1] = 'Unlocked by default.'

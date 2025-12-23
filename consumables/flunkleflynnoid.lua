@@ -13,7 +13,8 @@ SMODS.Consumable {
     cost = 3,
     unlocked = true,
     discovered = true,
-    hidden = false,
+    hidden = true,
+    soul_set = 'what_are_these',
     can_repeat_soul = false,
     atlas = 'CustomConsumables',
     soul_pos = {

@@ -36,7 +36,7 @@ SMODS.Joker{ --Picasso
     calculate = function(self, card, context)
         if context.selling_self  and not context.blueprint then
             if true then
-<<<<<<< HEAD
+
                 for i = 1, #(G.hand and G.hand.cards or {}) do
               local card_front = pseudorandom_element(G.P_CARDS, pseudoseed('add_card'))
             local new_card = create_playing_card({
@@ -63,7 +63,7 @@ SMODS.Joker{ --Picasso
             end}, card)
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Added Card!", colour = G.C.GREEN})
           end
-=======
+
                 for i = 1, card.ability.extra.repetitions do
                     local card_front = pseudorandom_element(G.P_CARDS, pseudoseed('add_card_hand'))
                     local base_card = create_playing_card({
@@ -92,7 +92,7 @@ SMODS.Joker{ --Picasso
                     end}, card)
                     card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Added Card!", colour = G.C.GREEN})
                 end
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
+
             end
         end
     end

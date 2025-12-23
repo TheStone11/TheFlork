@@ -34,19 +34,8 @@ SMODS.Joker{ --Hapoten
     unlocked = true,
     discovered = false,
     atlas = 'CustomJokers',
-<<<<<<< HEAD
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
-=======
-<<<<<<< HEAD
-    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
-=======
-<<<<<<< HEAD
-    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true },
-=======
-    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
->>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
->>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
+
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then

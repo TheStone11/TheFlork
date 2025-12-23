@@ -1,4 +1,3 @@
-
 SMODS.Joker{ --21 Voll
     key = "volll21",
     config = {
@@ -31,45 +30,29 @@ SMODS.Joker{ --21 Voll
     unlocked = true,
     discovered = true,
     atlas = 'CustomJokers',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    in_pool = function(self, args)
-        return (
-            not args 
-            or args.source ~= 'sho' 
-            or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
-        )
-        and true
-    end,
-    
-=======
->>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
 
->>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
     set_ability = function(self, card, initial)
         card:set_eternal(true)
         card:add_sticker('perishable', true)
     end,
+
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  and not context.blueprint then
             if (function()
-                local count = 0
-                for _, playing_card in pairs(context.scoring_hand or {}) do
-                    if context.scoring_hand:get_id() == 2 then
-                        count = count + 1
+                local rankCount = 0
+                for i, c in ipairs(context.scoring_hand) do
+                    if c:get_id() == 2 then
+                        rankCount = rankCount + 1
                     end
                 end
-                return count >= 1
-            end)() then
-                return {
-                    func = function()
-                        
-                        G.E_MANAGER:add_event(Event({
+                
+                return rankCount >= 1
+                end)() then
+                    return {
+                        func = function()
+                            
+                            G.E_MANAGER:add_event(Event({
                             trigger = 'after',
                             delay = 0.5,
                             func = function()
@@ -81,42 +64,43 @@ SMODS.Joker{ --21 Voll
                         }))
                         
                         return true
+                        end
+                    }
+                elseif (function()
+                    local rankCount = 0
+                    for i, c in ipairs(context.scoring_hand) do
+                        if c:get_id() == 14 then
+                            rankCount = rankCount + 1
+                        end
                     end
-                }
-            elseif (function()
-                local count = 0
-                for _, playing_card in pairs(context.scoring_hand or {}) do
-                    if context.scoring_hand:get_id() == A then
-                        count = count + 1
+                    
+                    return rankCount >= 1
+                    end)() then
+                        return {
+                            func = function()
+                                
+                                G.E_MANAGER:add_event(Event({
+                                trigger = 'after',
+                                delay = 0.5,
+                                func = function()
+                                    if G.STAGE == G.STAGES.RUN then 
+                                        G.STATE = G.STATES.GAME_OVER
+                                        G.STATE_COMPLETE = false
+                                    end
+                                end
+                            }))
+                            
+                            return true
+                            end
+                        }
                     end
                 end
-                return count >= 1
-            end)() then
-                return {
-                    func = function()
-                        
-                        G.E_MANAGER:add_event(Event({
-                            trigger = 'after',
-                            delay = 0.5,
-                            func = function()
-                                if G.STAGE == G.STAGES.RUN then 
-                                    G.STATE = G.STATES.GAME_OVER
-                                    G.STATE_COMPLETE = false
-                                end
-                            end
-                        }))
-                        
-                        return true
-                    end
-                }
-            end
-        end
-    end,
-    
+            end,
+
     add_to_deck = function(self, card, from_debuff)
         G.jokers.config.card_limit = G.jokers.config.card_limit + 1
     end,
-    
+
     remove_from_deck = function(self, card, from_debuff)
         G.jokers.config.card_limit = G.jokers.config.card_limit - 1
     end

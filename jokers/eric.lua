@@ -34,25 +34,16 @@ SMODS.Joker{ --Eric
     unlocked = true,
     discovered = true,
     atlas = 'CustomJokers',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
     in_pool = function(self, args)
         return (
             not args 
             or args.source ~= 'sho' 
             or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
         )
-        and true
+         and true
     end,
     
-=======
->>>>>>> 1d9e02498e9b9e2a1fe0575e73a6890f74001664
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
-
->>>>>>> 34f1575 (JESSE, DON'T OPEN MERCI.LUA, JESSE!!!)
     set_ability = function(self, card, initial)
         card:set_eternal(true)
         card:add_sticker('perishable', true)

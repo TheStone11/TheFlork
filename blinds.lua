@@ -125,33 +125,26 @@ SMODS.Blind {
         text = {
             'After play or discard',
             'Only draw 2 cards',
-            '+4 hand size',
+            '+2 hand size',
         }
     },
     dollars = 8,
-<<<<<<< HEAD
+
     mult = 0.9,
-=======
-    mult = 1,
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.drawing_cards and (G.GAME.current_round.hands_played ~= 0 or G.GAME.current_round.discards_used ~= 0) then
                 return {
-<<<<<<< HEAD
                     cards_to_draw = 1
-=======
-                    cards_to_draw = 2
->>>>>>> f1d41370b37891c85d99e193966811d8dd8f89dd
                 }
             end
         end
 
         if context.setting_blind then
-            G.hand:change_size(4)  
+            G.hand:change_size(2)  
         end
         defeat = function(self)
-            G.hand:change_size(-4)
+            G.hand:change_size(-2)
         end
     end,
     boss = { showdown = true },
@@ -159,3 +152,31 @@ SMODS.Blind {
     boss_colour = HEX("2f3179")
 }
 
+
+--SMODS.Blind {
+--    key = "lafufu",
+--    atlas = "flynnblinds",
+--    pos = { y = 3 },
+--    loc_txt = {
+--        name = "L.A.F.U:F.U.",
+--        text = {
+--            'Fuck you',
+--            --stands for Logical Assault Foreboding Unstoppable Flynn-branded Unit btw
+--        }
+--    },
+--    dollars = 16,
+--
+--    mult = 0.9,
+--    debuff_hand = function(self)
+--        for i = 1, #G.play.cards do
+--            if G.play.cards[i].seal == nil then
+--                SMODS.juice_up_blind()
+--                G.play.cards[i]:set_seal("flynnset_evil",true,true)
+--                delay(0.3)
+--            end
+--        end
+--    end,
+--    boss = { showdown = true },
+--    --boss_colour = HEX("435066")
+--    boss_colour = HEX("#4e4141ff")
+--}

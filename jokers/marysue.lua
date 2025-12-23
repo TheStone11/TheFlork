@@ -45,7 +45,7 @@ SMODS.Joker{ --Mary Sue
             }
         end
         if context.selling_card  then
-            if to_big((card.ability.extra.Mult or 0)) <= to_big(1) then
+            if to_big((card.ability.extra.Mult or 0)) <= to_big(2) then
                 return {
                     func = function()
                         local target_joker = card
@@ -54,7 +54,7 @@ SMODS.Joker{ --Mary Sue
                             target_joker.getting_sliced = true
                             G.E_MANAGER:add_event(Event({
                                 func = function()
-                                    target_joker:shatter({G.C.RED}, nil, 1.6)
+                                    target_joker:start_dissolve({G.C.RED}, nil, 1.6)
                                     return true
                                 end
                             }))
@@ -68,7 +68,8 @@ SMODS.Joker{ --Mary Sue
                     func = function()
                         card.ability.extra.Mult = math.max(0, (card.ability.extra.Mult) - 1)
                         return true
-                    end
+                    end,
+                    message = "<//3"
                 }
             end
         end
