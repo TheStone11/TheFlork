@@ -13,7 +13,7 @@ SMODS.Joker{ --Gimmiko Fandom Wiki
     loc_txt = {
         ['name'] = 'Gimmiko Fandom Wiki',
         ['text'] = {
-            [1] = '{C:blue}+250{} Chips,  {C:green}#3# in #4# {}chance to be destroyed at the end of the round'
+            [1] = '{C:blue}+250{} Chips,  {C:green}#1# in #2# {}chance to be destroyed at the end of the round'
             --i don't care about the wiki atp, it went extinct, like months ago, stop crying about it 
         },
         ['unlock'] = {
