@@ -25,6 +25,14 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "CustomEnhancements", 
+    path = "CustomEnhancements.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
     key = "CustomJokers2", 
     path = "jokers2revengeoftherobots.png", 
     px = 71,
@@ -61,7 +69,7 @@ to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
 --jonklers load order
-local jokerIndexList = {7,10,8,48,25,44,29,18,47,15,17,43,37,36,24,4,42,19,5,12,11,35,33,30,21,22,40,32,3,14,1,39,34,46,9,16,2,13,28,20,45,38,31,26,27,6,41,23}
+local jokerIndexList = {6,10,8,54,30,49,34,21,53,18,20,48,42,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
 
 
 local function load_jokers_folder()
@@ -103,7 +111,8 @@ local function load_consumables_folder()
 end
 
 
-local sealIndexList = {2,3,1}
+
+local sealIndexList = {2,1}
 
 local function load_seals_folder()
     local mod_path = SMODS.current_mod.path
@@ -130,6 +139,7 @@ local function load_boosters_file()
 end
 
 assert(SMODS.load_file("sounds.lua"))()
+
 
 --hapoten is your favorite character (not up for debate)
 assert(SMODS.load_file("hapodeck.lua"))()
@@ -174,7 +184,7 @@ SMODS.ObjectType({
 
 SMODS.ObjectType({
     key = "flynnset_flynnset_jokers",
-    --Oops, All Jokers!
+    --most of the mod's jokers, G-Zone might debuff these jokers
     cards = {
         ["j_flynnset_allkelsgotoheaven"] = true,
         ["j_flynnset_astro"] = true,
@@ -210,7 +220,12 @@ SMODS.ObjectType({
         ["j_flynnset_themouth"] = true,
         ["j_flynnset_theplant"] = true,
         ["j_flynnset_zizou"] = true,
-        ["j_flynnset_zo"] = true
+        ["j_flynnset_zo"] = true,
+        ["j_flynnset_flynnling"] = true,
+        ["j_flynnset_yukionna"] = true,
+        ["j_flynnset_gozu"] = true,
+        ["j_flynnset_jacktheripper"] = true,
+        ["j_flynnset_kokurrisan"] = true
     },
 })
 
@@ -234,6 +249,7 @@ SMODS.ObjectType({
         ["j_flynnset_mercury"] = true,
         ["j_flynnset_monaka"] = true,
         ["j_flynnset_ladykaguya"] = true,
+        ["j_flynnset_yukionna"] = true,
         ["j_egg"] = true
     },
 })
@@ -243,7 +259,10 @@ SMODS.ObjectType({
     key = "flynnset_gimmiko",
     cards = {
         ["j_flynnset_gimmiko"] = true,
+        ["j_flynnset_gozu"] = true,
         ["j_flynnset_ika"] = true,
+        ["j_flynnset_jacktheripper"] = true,
+        ["j_flynnset_kokurrisan"] = true,
         ["j_flynnset_ladykaguya"] = true,
         ["j_flynnset_lenam"] = true,
         ["j_flynnset_marysue"] = true,
@@ -253,6 +272,7 @@ SMODS.ObjectType({
         ["j_flynnset_shogunateofcrows"] = true,
         ["j_flynnset_sprue"] = true,
         ["j_flynnset_themiko"] = true,
+        ["j_flynnset_yukionna"] = true,
         ["j_flynnset_zo"] = true
     }, 
 })
@@ -264,6 +284,7 @@ SMODS.current_mod.optional_features = function()
     }
 end
 
+--Dilecta Uxor may only appear if you have Cryptid installed
 if next(SMODS.find_mod("Cryptid")) then
    assert(SMODS.load_file("dilectauxor.lua"))()
 end

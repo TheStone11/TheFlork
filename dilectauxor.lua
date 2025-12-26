@@ -1,4 +1,4 @@
-
+--this joker is crossmod with the mod Cryptid, so you need to have it installed inorder for this joker to appear
 SMODS.Joker{ --Dilecta Uxor
     key = "dilectauxor",
     -- means "Beloved Wife in Latin"
@@ -27,7 +27,7 @@ SMODS.Joker{ --Dilecta Uxor
         w = 71 * 1, 
         h = 95 * 1
     },
-    cost = 20,
+    cost = 50,
     rarity = "cry_exotic",
     blueprint_compat = true,
     eternal_compat = true,

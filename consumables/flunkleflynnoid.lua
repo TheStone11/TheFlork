@@ -1,7 +1,7 @@
 
 SMODS.Consumable {
     key = 'flunkleflynnoid',
-    set = 'what_are_these',
+    set = 'Spectral',
     pos = { x = 2, y = 0 },
     loc_txt = {
         name = 'FLUNKLE FLYNNOID',
