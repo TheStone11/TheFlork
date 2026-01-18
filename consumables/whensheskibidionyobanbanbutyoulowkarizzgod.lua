@@ -29,23 +29,9 @@ SMODS.Consumable {
             func = function()
                 
                 local current_dollars = G.GAME.dollars
-                local target_dollars = G.GAME.dollars + 5
+                local target_dollars = G.GAME.dollars * 4
                 local dollar_value = target_dollars - current_dollars
-                card_eval_status_text(used_card, 'extra', nil, nil, nil, {message = "+"..tostring(5).." $", colour = G.C.RED})
-                ease_dollars(dollar_value, true)
-                return true
-            end
-        }))
-        delay(0.6)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                
-                local current_dollars = G.GAME.dollars
-                local target_dollars = G.GAME.dollars + 5
-                local dollar_value = target_dollars - current_dollars
-                card_eval_status_text(used_card, 'extra', nil, nil, nil, {message = "+"..tostring(5).." $", colour = G.C.RED})
+                card_eval_status_text(used_card, 'extra', nil, nil, nil, {message = "X"..tostring(4).." $", colour = G.C.RED})
                 ease_dollars(dollar_value, true)
                 return true
             end

@@ -25,6 +25,30 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "sappy", 
+    path = "sappy.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+}) 
+
+SMODS.Atlas({
+    key = "hapoverse", 
+    path = "hapoverse.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+}) 
+
+SMODS.Atlas({
+    key = "legendaries", 
+    path = "legendaries.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+}) 
+
+SMODS.Atlas({
     key = "CustomEnhancements", 
     path = "CustomEnhancements.png", 
     px = 71,
@@ -57,6 +81,14 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "vouchers", 
+    path = "vouchers.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
     key = "CustomSeals", 
     path = "CustomSeals.png", 
     px = 71,
@@ -69,7 +101,8 @@ to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
 --jonklers load order
-local jokerIndexList = {6,10,8,54,30,49,34,21,53,18,20,48,42,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
+local jokerIndexList = {6,10,49,34,21,53,18,20,48,42,52,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
+--local jokerIndexList = {6,10,49,34,21,18,20,48,42,52,53,54,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
 
 
 local function load_jokers_folder()
@@ -133,13 +166,26 @@ end
 
 load_rarities_file()
 
+
+--assert(SMODS.load_file("pokerhands.lua"))()
+
 local function load_boosters_file()
     local mod_path = SMODS.current_mod.path
     assert(SMODS.load_file("boosters.lua"))()
 end
 
-assert(SMODS.load_file("sounds.lua"))()
 
+--This loads the legendary jokers 
+assert(SMODS.load_file("redfix.lua"))()
+assert(SMODS.load_file("yellofix.lua"))()
+assert(SMODS.load_file("sunthing.lua"))()
+assert(SMODS.load_file("murderguy.lua"))()
+assert(SMODS.load_file("jaymon.lua"))()
+
+assert(SMODS.load_file("lucky_penny.lua"))()
+assert(SMODS.load_file("donation_box.lua"))()
+
+assert(SMODS.load_file("sounds.lua"))()
 
 --hapoten is your favorite character (not up for debate)
 assert(SMODS.load_file("hapodeck.lua"))()
@@ -284,7 +330,20 @@ SMODS.current_mod.optional_features = function()
     }
 end
 
---Dilecta Uxor may only appear if you have Cryptid installed
+--Dilecta Uxor and Monaka may only appear if you have Cryptid installed
 if next(SMODS.find_mod("Cryptid")) then
    assert(SMODS.load_file("dilectauxor.lua"))()
+end
+
+--ignore these lol i'm just tryna load neonflame crossmod
+if next(SMODS.find_mod("Neonflame")) then
+   assert(SMODS.load_file("yukionna.lua"))()
+end
+
+if next(SMODS.find_mod("neonflames")) then
+   assert(SMODS.load_file("yukionna.lua"))()
+end
+
+if next(SMODS.find_mod("nflame")) then
+   assert(SMODS.load_file("yukionna.lua"))()
 end

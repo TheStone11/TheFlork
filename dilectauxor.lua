@@ -63,7 +63,7 @@ SMODS.Joker{ --Dilecta Uxor
             }, G.discard, true, false, nil, true)
             
             
-            base_card:set_edition(pseudorandom_element({'e_foil','e_holo','e_polychrome','e_negative'}, pseudoseed('add_card_hand_edition')), true)
+            base_card:set_edition(pseudorandom_element({'e_foil','e_holo','e_polychrome','e_negative','e_cry_oversat','e_cry_m','e_cry_noisy'}, pseudoseed('add_card_hand_edition')), true)
             
             G.playing_card = (G.playing_card and G.playing_card + 1) or 1
             local new_card = copy_card(base_card, nil, nil, G.playing_card)
@@ -83,13 +83,74 @@ SMODS.Joker{ --Dilecta Uxor
                 end
             }))
             return {
-                message = "Added Card!"
+                message = "HAPOTEN IS YOUR FAVORITE CHARACTER."
             }
         end
         if context.cardarea == G.jokers and context.joker_main  then
             return {
                 Xmult = card.ability.extra.cardsindeck + (#(G.deck and G.deck.cards or {})) * 0.2
             }
+        end
+    end
+}
+
+
+SMODS.Joker{ --Monaka
+    key = "monaka",
+    config = {
+        extra = {
+        }
+    },
+    loc_txt = {
+        ['name'] = 'Monaka',
+        ['text'] = {
+            [1] = 'Create a {C:green}Code{} card when a {C:attention}Lucky{} card successfully triggers'
+        },
+        ['unlock'] = {
+            [1] = 'Unlocked by default.'
+        }
+    },
+    pos = {
+        x = 5,
+        y = 4
+    },
+    display_size = {
+        w = 71 * 1, 
+        h = 95 * 1
+    },
+    cost = 5,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    unlocked = true,
+    discovered = true,
+    atlas = 'CustomJokers2',
+    pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true },
+    
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play  then
+            if context.other_card.lucky_trigger then
+                for i = 1, math.min(1, G.consumeables.config.card_limit - #G.consumeables.cards) do
+                    G.E_MANAGER:add_event(Event({
+                        --trigger = 'after',
+                        --delay = 0.4,
+                        func = function()
+                            if G.consumeables.config.card_limit > #G.consumeables.cards then
+						        local c = create_card("Code", G.consumeables, nil, nil, nil, nil, nil)
+						        c:add_to_deck()
+						        G.consumeables:emplace(c)
+						        card:juice_up()
+					        end
+					        return true
+                        end
+                    }))
+                end
+                delay(0.6)
+                return {
+
+                }
+            end
         end
     end
 }

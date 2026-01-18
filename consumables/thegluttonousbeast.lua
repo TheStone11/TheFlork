@@ -6,7 +6,7 @@ SMODS.Consumable {
     loc_txt = {
         name = 'The Gluttonous Beast',
         text = {
-            [1] = 'Gives up to {C:attention}5{} cards in hand the Pluey seal',
+            [1] = 'Gives selected cards in hand the Pluey seal',
             [2] = 'Adds 5 EVIL cards to deck'
         }
     },

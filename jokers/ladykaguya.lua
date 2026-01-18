@@ -9,7 +9,7 @@ SMODS.Joker{ --Lady Kaguya
     loc_txt = {
         ['name'] = 'Lady Kaguya',
         ['text'] = {
-            [1] = '{C:attention}Gimmiko{} Jokers each give {X:red,C:white}X1.5{} Mult'
+            [1] = 'other {C:attention}Gimmiko{} Jokers each give {X:red,C:white}X1.5{} Mult'
             --this only applies to jokers that can show up in Gimmikal Packs, meaning Dilecta Uxor and Zizou Says Sybau can't provide mult
             --lady kaguya is a peak character btw
         },

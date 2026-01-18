@@ -3,7 +3,8 @@ SMODS.Joker{ --I highly recommend you choose Seal
     key = "ihighlyrecommendyouchooseseal",
     config = {
         extra = {
-            hand = 0
+            hand = 0,
+            repetitions = 3
         }
     },
     loc_txt = {
@@ -36,29 +37,29 @@ SMODS.Joker{ --I highly recommend you choose Seal
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
             if (next(context.poker_hands["Three of a Kind"]) and G.GAME.current_round.hands_played == 0) then
-                local card_front = pseudorandom_element(G.P_CARDS, pseudoseed('add_card_hand'))
-                local base_card = create_playing_card({
-                    front = card_front,
-                    center = G.P_CENTERS.c_base
-                }, G.discard, true, false, nil, true)
-                
-                base_card:set_seal(pseudorandom_element({'Gold','Red','Blue','Purple','flynnset_evil','flynnset_pluey','flynnset_charredseal'}, pseudoseed('add_card_hand_seal')), true)
-                
-                
-                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-                base_card.playing_card = G.playing_card
-                table.insert(G.playing_cards, base_card)
-                
-                G.E_MANAGER:add_event(Event({
-                    func = function() 
-                        G.hand:emplace(base_card)
-                        base_card:start_materialize()
-                        return true
-                    end
-                }))
-                return {
-                    message = "Added Card to Hand!"
-                }
+                for i = 1, 1 do
+                    local card_front = pseudorandom_element(G.P_CARDS, pseudoseed('add_card_hand'))
+                    local base_card = create_playing_card({
+                        front = card_front,
+                        center = G.P_CENTERS.c_base
+                    }, G.discard, true, false, nil, true)
+                    
+                    base_card:set_seal(pseudorandom_element({'Gold','Red','Blue','Purple','flynnset_evil','flynnset_pluey','flynnset_charredseal'}, pseudoseed('add_card_hand_seal')), true)
+                    
+                    
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    base_card.playing_card = G.playing_card
+                    table.insert(G.playing_cards, base_card)
+                    
+                    G.E_MANAGER:add_event(Event({
+                        func = function() 
+                            G.hand:emplace(base_card)
+                            base_card:start_materialize()
+                            return true
+                        end
+                    }))
+                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Added Card to Hand!", colour = G.C.GREEN})
+                end
             end
         end
     end

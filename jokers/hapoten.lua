@@ -3,7 +3,7 @@ SMODS.Joker{ --Hapoten
     key = "hapoten",
     config = {
         extra = {
-            repetitions = 1
+            repetitions = 5
         }
     },
     loc_txt = {

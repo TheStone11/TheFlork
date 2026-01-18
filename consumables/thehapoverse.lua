@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = 'thehapoverse',
     set = 'Planet',
-    pos = { x = 7, y = 0 },
+    pos = { x = 0, y = 0 },
     config = { extra = {
         odds = 4,
         repetitions = 1,
@@ -19,7 +19,7 @@ SMODS.Consumable {
     discovered = true,
     hidden = false,
     can_repeat_soul = false,
-    atlas = 'CustomConsumables',use = function(self, card, area, copier)
+    atlas = 'hapoverse',use = function(self, card, area, copier)
         local used_card = copier or card
             G.E_MANAGER:add_event(Event({
      func = function()

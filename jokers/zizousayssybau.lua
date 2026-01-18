@@ -3,7 +3,7 @@ SMODS.Joker{ --Zizou Says Sybau
     key = "zizousayssybau",
     config = {
         extra = {
-            blind_size0 = 0.5
+            blind_size0 = 0.25
         }
     },
     loc_txt = {
@@ -53,7 +53,7 @@ SMODS.Joker{ --Zizou Says Sybau
                         if G.GAME.blind.in_blind then
                             
                             card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "SYBAU!!", colour = G.C.GREEN})
-                            G.GAME.blind.chips = G.GAME.blind.chips * 0.5
+                            G.GAME.blind.chips = G.GAME.blind.chips * 0.25
                             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
                             G.HUD_blind:recalculate()
                             return true

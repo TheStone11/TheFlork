@@ -2,7 +2,7 @@
   "id": "flynnsanity",
   "name": "FLYNNSANITY",
   "author": [
-    "Flynn"
+    "FlynnsaneFellow"
   ],
   "description": "hello cro (a really bad balatro mod)\n",
   "prefix": "flynnset",
@@ -12,6 +12,7 @@
   "badge_colour": "EEFF0C",
   "badge_text_colour": "C0FFEE",
   "dependencies": [
-    "Steamodded (>=1.0.0~BETA-0827c)"
+    "Steamodded (>=1.0.0~BETA-0827c)",
+    "Talisman"
   ]
 }

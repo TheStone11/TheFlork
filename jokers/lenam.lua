@@ -3,15 +3,15 @@ SMODS.Joker{ --Lenam
     key = "lenam",
     config = {
         extra = {
-            blind_size0 = 2,
-            dollars0 = 25
+            blind_size0 = 1.5,
+            blind_reward0 = 25
         }
     },
     loc_txt = {
         ['name'] = 'Lenam',
         ['text'] = {
             [1] = 'Gain a {C:dark_edition}Negative Tag{} and {C:money}$25{} when Boss Blind is defeated',
-            [2] = '{C:red}X2 Score Requirement{}'
+            [2] = '{C:red}X1.5 Score Requirement{}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -32,8 +32,18 @@ SMODS.Joker{ --Lenam
     perishable_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = 'CustomJokers',
+    atlas = 'CustomJokers2',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_gimmiko"] = true },
+    
+    calc_dollar_bonus = function(card)
+        local blind_reward = 0
+        if G.GAME.blind.boss then
+            blind_reward = blind_reward + math.max(25, 0)
+        end
+        if blind_reward > 0 then
+            return blind_reward
+        end
+    end,
     
     calculate = function(self, card, context)
         if context.setting_blind  and not context.blueprint then
@@ -43,8 +53,8 @@ SMODS.Joker{ --Lenam
                     func = function()
                         if G.GAME.blind.in_blind then
                             
-                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "X"..tostring(2).." Blind Size", colour = G.C.GREEN})
-                            G.GAME.blind.chips = G.GAME.blind.chips * 2
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "X"..tostring(1.5).." Blind Size", colour = G.C.GREEN})
+                            G.GAME.blind.chips = G.GAME.blind.chips * 1.5
                             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
                             G.HUD_blind:recalculate()
                             return true
@@ -76,20 +86,7 @@ SMODS.Joker{ --Lenam
                     }))
                     return true
                 end,
-                message = "Created Tag!",
-                extra = {
-                    
-                    func = function()
-                        
-                        local current_dollars = G.GAME.dollars
-                        local target_dollars = G.GAME.dollars + 25
-                        local dollar_value = target_dollars - current_dollars
-                        ease_dollars(dollar_value)
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "+"..tostring(25), colour = G.C.MONEY})
-                        return true
-                    end,
-                    colour = G.C.MONEY
-                }
+                message = "Created Tag!"
             }
         end
     end
