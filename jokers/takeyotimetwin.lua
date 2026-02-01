@@ -12,8 +12,8 @@ SMODS.Joker{ --take yo time twin
     loc_txt = {
         ['name'] = 'take yo time twin',
         ['text'] = {
-            [1] = 'wastes your time',
-            [2] = 'yes the art is delagrat'
+            [1] = 'wastes your time'
+            --the joke is that the card literally just wastes your time, as you get your chips back and it doesnt' affect score at all.
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -21,7 +21,7 @@ SMODS.Joker{ --take yo time twin
     },
     pos = {
         x = 1,
-        y = 5
+        y = 1
     },
     display_size = {
         w = 71 * 1, 
@@ -34,7 +34,7 @@ SMODS.Joker{ --take yo time twin
     perishable_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'CustomJokers',
+    atlas = 'thatoneatlaswiththefunnyfilename',
     in_pool = function(self, args)
         return (
             not args 

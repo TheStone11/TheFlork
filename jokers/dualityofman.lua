@@ -10,6 +10,7 @@ SMODS.Joker{ --Duality of Man
         ['name'] = 'Duality of Man',
         ['text'] = {
             [1] = 'Creates an EVIL playing card and a PLUEY playing card when blind is selected'
+            --this card has been given art finally.
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -30,7 +31,8 @@ SMODS.Joker{ --Duality of Man
     perishable_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = 'CustomJokers',
+    atlas = 'thatoneatlaswiththefunnyfilename',
+    --funfact: if this joker has the negative edition applied to it, the sprite's sides look inverted
     pools = { ["flynnset_flynnset_jokers"] = true },
     
     calculate = function(self, card, context)

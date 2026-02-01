@@ -24,6 +24,15 @@ SMODS.Atlas({
     atlas_table = "ASSET_ATLAS"
 })
 
+--i swear to god if someone asks me what's with the filename i will end them.
+SMODS.Atlas({
+    key = "thatoneatlaswiththefunnyfilename", 
+    path = "hapussyeaterolympics.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
 SMODS.Atlas({
     key = "sappy", 
     path = "sappy.png", 
@@ -101,7 +110,7 @@ to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
 --jonklers load order
-local jokerIndexList = {6,10,49,34,21,53,18,20,48,42,52,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
+local jokerIndexList = {6,10,49,34,21,53,54,55,56,57,58,59,60,61,18,20,48,42,52,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
 --local jokerIndexList = {6,10,49,34,21,18,20,48,42,52,53,54,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
 
 

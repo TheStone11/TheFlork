@@ -5,18 +5,20 @@ SMODS.Joker{ --21 Voll
         }
     },
     loc_txt = {
-        ['name'] = '21 Voll',
+        ['name'] = 'Nostalgic Vine Video',
         ['text'] = {
             [1] = '{C:red}INSTANTLY DIE{} if played hand contains a scoring Ace or a 2',
-            [2] = '{C:inactive}Alas, my poor Vollington, no one will mourn you.{}'
+            --[2] = '{C:inactive}Alas, my poor Vollington, no one will mourn you.{}'
+            [2] = '{C:inactive}Whats 9+10?{}'
+            --as of the newest update this joker has been turned from a really petty jab at my former friends into a card referencing a popular vine video
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
         }
     },
     pos = {
-        x = 0,
-        y = 4
+        x = 2,
+        y = 1
     },
     display_size = {
         w = 71 * 1, 
@@ -29,7 +31,7 @@ SMODS.Joker{ --21 Voll
     perishable_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'CustomJokers',
+    atlas = 'thatoneatlaswiththefunnyfilename',
 
     set_ability = function(self, card, initial)
         card:set_eternal(true)
