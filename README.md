@@ -1,19 +1,17 @@
 # flynnsanity
-shitpost with over 40 jonklers, new consumable set, 4 decks, and... tags???
+shitpost with over 40 jonklers, new consumable set, 4+ decks, boss blinds, a new suit and more
 
 CREDITS
 
-Flynn - producer, the guy that adds stuff to the mod
+Flynn - producer, the girl that adds stuff to the mod
 
-Sophie - didn't do shit for the mod but she's my dog
+Stone11 - helps me with github
 
 Astro - really cool guy, helped me sometimes
 
-Zizou - i am legally forced to credit him because of the gimmiko jokers, since Zizou made Gimmiko
+Zizou - i am legally forced to credit him because of the gimmiko jokers, since Zizou made Gimmiko (I do not endorse his actions, he a sick fuck frfr)
 
 Yahiamice - guy who inspired flynnsanity
-
-G-Zone - he's the "poop yourself, kid" guy from the mod,
 
 thanks for playing Flynnsanity, for that we give you an ascii horse
 ⠀⠀⠀⠀⠀⠀⢀⠀⠀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
