@@ -11,7 +11,7 @@ SMODS.Joker{ --Isolda
     loc_txt = {
         ['name'] = 'Isolda',
         ['text'] = {
-            [1] = '{C:red}-1{} Ante every 6 {C:diamonds}Diamonds{} scored, then',
+            [1] = '{C:red}-1{} Ante every #2# {C:diamonds}Diamonds{} scored, then',
             [2] = 'doubles requirement'
             --doesn't do anything else if Afonya is in your jokers, only he can restore uses.
         },

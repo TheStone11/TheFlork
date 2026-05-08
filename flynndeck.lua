@@ -1,23 +1,16 @@
---flynnatlas
 
-SMODS.Atlas{
-    key = 'flynnatlas',
-    path = "flynndeck.png",
-    px = 72,
-    py = 95,
-}
 
 
 SMODS.Back{
     name = "Flynn Deck",
     key = "Flynn Deck",
-    atlas = "flynnatlas",
+    atlas = "otherdecks",
     pos = {x = 0, y = 0},
     config = { hands = 1, discards = 0},
     loc_txt = {
         name ="Flynn Deck",
         text={
-            "Start with Flynn",
+            "Start with Flynn herself",
         },
     },
     apply = function(self)

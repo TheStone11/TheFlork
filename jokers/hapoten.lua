@@ -19,8 +19,8 @@ SMODS.Joker{ --Hapoten
         }
     },
     pos = {
-        x = 2,
-        y = 1
+        x = 0,
+        y = 0
     },
     display_size = {
         w = 71 * 1.1, 
@@ -33,7 +33,7 @@ SMODS.Joker{ --Hapoten
     perishable_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = 'CustomJokers',
+    atlas = 'flynnswife',
     pools = { ["flynnset_flynnset_jokers"] = true, ["flynnset_female"] = true, ["flynnset_gimmiko"] = true},
 
     
@@ -67,7 +67,6 @@ SMODS.Joker{ --Hapoten
                             return true
                         end
                     }))
-                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Added Card!", colour = G.C.GREEN})
                 end
             end
         end

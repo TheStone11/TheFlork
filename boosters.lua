@@ -9,7 +9,7 @@ SMODS.Booster {
         group_name = "flynnset_boosters"
     },
     config = { extra = 3, choose = 1 },
-    weight = 10,
+    weight = 1,
     atlas = "CustomBoosters",
     pos = { x = 0, y = 0 },
     group_key = "flynnset_boosters",
@@ -49,7 +49,7 @@ SMODS.Booster {
             group_name = "flynnset_boosters"
         },
         config = { extra = 3, choose = 1 },
-        weight = 4,
+        weight = 0.5,
         atlas = "CustomBoosters",
         pos = { x = 1, y = 0 },
         group_key = "flynnset_boosters",
@@ -152,13 +152,11 @@ SMODS.Booster {
             text = {
                 [1] = 'Choose 1 of 3 Gimmiko jokers'
                 -- flynn try not to shoehorn his hyperfixation on gimmiko into everything challenge (IMPOSSIBLE)
-                -- also btw i do NOT support the creator of gimmiko in any way because that guy's a huge jerk 
-                -- and i hate him
-                -- not really him but G-Zone like tfym you incited harassment towards me you bitch
             },
             group_name = "flynnset_boosters"
         },
         config = { extra = 3, choose = 1 },
+        weight = 0.25,
         atlas = "CustomBoosters",
         pos = { x = 3, y = 0 },
         group_key = "flynnset_boosters",

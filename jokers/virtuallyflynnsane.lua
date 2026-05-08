@@ -10,7 +10,7 @@ SMODS.Joker{ --Virtually Flynnsane
     loc_txt = {
         ['name'] = 'Virtually Flynnsane',
         ['text'] = {
-            [1] = 'Creates a Flynnsanity Joker when hand is played',
+            [1] = 'Creates a Negative Flynnsanity Joker when hand is played',
             [2] = 'Does not require room, may overflow.'
             --Dancing, walking, rearranging furniture
         },
@@ -19,8 +19,8 @@ SMODS.Joker{ --Virtually Flynnsane
         }
     },
     pos = {
-        x = 9,
-        y = 4
+        x = 0,
+        y = 2
     },
     display_size = {
         w = 71 * 1, 
@@ -33,10 +33,10 @@ SMODS.Joker{ --Virtually Flynnsane
     perishable_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'CustomJokers',
+    atlas = 'flynnatics2',
     soul_pos = {
-        x = 0,
-        y = 5
+        x = 1,
+        y = 2
     },
     in_pool = function(self, args)
         return (
@@ -54,7 +54,7 @@ SMODS.Joker{ --Virtually Flynnsane
                 func = function()
                     local joker_card = SMODS.add_card({ set = 'flynnset_flynnset_jokers' })
                     if joker_card then
-                        joker_card:set_edition(card.ability.extra.e_negative, true)
+                        joker_card:set_edition('e_negative', true)
                         
                     end
                     

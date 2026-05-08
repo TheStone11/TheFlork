@@ -4,15 +4,14 @@
   "author": [
     "FlynnsaneFellow"
   ],
-  "description": "hello cro (a really bad balatro mod)\n",
+  "description": "hello cro\n",
   "prefix": "flynnset",
   "main_file": "main.lua",
-  "version": "2.0",
+  "version": "3.0",
   "priority": 0,
   "badge_colour": "EEFF0C",
   "badge_text_colour": "C0FFEE",
   "dependencies": [
     "Steamodded (>=1.0.0~BETA-0827c)",
-    "Talisman"
   ]
 }

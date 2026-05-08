@@ -11,18 +11,18 @@ SMODS.Joker{ --Flynnprint
     loc_txt = {
         ['name'] = 'Flynnprint',
         ['text'] = {
-            [1] = 'Create a Negative Blueprint when Boss Blind is defeated'
+            [1] = 'Create a Negative Perishable Blueprint when Boss Blind is defeated'
             --[2] = '{C:red}-2{} {C:attention}Hand Size{}'
             --she's no longer the worst flynn joker in the mod :D
-            --note that it's "she" because she's the only female flynn joker in the mod :D
+            
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
         }
     },
     pos = {
-        x = 2,
-        y = 2
+        x = 0,
+        y = 1
     },
     display_size = {
         w = 71 * 1, 
@@ -35,10 +35,10 @@ SMODS.Joker{ --Flynnprint
     perishable_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'CustomJokers',
+    atlas = 'flynnatics2',
     soul_pos = {
-        x = 3,
-        y = 2
+        x = 1,
+        y = 1
     },
     in_pool = function(self, args)
         return (
@@ -59,7 +59,7 @@ SMODS.Joker{ --Flynnprint
                         func = function()
                             local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_blueprint' })
                             if joker_card then
-                                joker_card:set_edition(card.ability.extra.e_negative, true)
+                                joker_card:set_edition('e_negative', true)
                                 joker_card:add_sticker('perishable', true)
                             end
                             

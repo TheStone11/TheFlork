@@ -8,7 +8,7 @@ SMODS.Joker{ --Jokiff Jokaff
         }
     },
     loc_txt = {
-        ['name'] = 'Jokiff Jokaff',
+        ['name'] = 'Flynn Raff',
         ['text'] = {
             [1] = '{C:attention}Create{} a Flynnsanity joker when blind is selected',
             [2] = '{C:inactive}(Must have room){}'
@@ -18,21 +18,21 @@ SMODS.Joker{ --Jokiff Jokaff
         }
     },
     pos = {
-        x = 2,
-        y = 3
+        x = 0,
+        y = 1
     },
     display_size = {
         w = 71 * 1, 
         h = 95 * 1
     },
     cost = 6,
-    rarity = 3,
+    rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'CustomJokers',
+    atlas = 'lookfuljokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
     
     calculate = function(self, card, context)

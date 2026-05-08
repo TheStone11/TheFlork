@@ -3,20 +3,20 @@ SMODS.Joker{ --Zizou Says Sybau
     key = "zizousayssybau",
     config = {
         extra = {
-            blind_size0 = 0.25
+            odds = 4
         }
     },
     loc_txt = {
-        ['name'] = 'Zizou Says Sybau',
+        ['name'] = 'Zizou',
         ['text'] = {
-            [1] = 'When boss blind is selected, tells boss blind to stbau'
+            [1] = '{C:green}#2# in #3#{} chance to make a {C:dark_edition}Negative{} {C:attention}Gimmiko{} Joker when a card is sold'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
         }
     },
     pos = {
-        x = 4,
+        x = 0,
         y = 0
     },
     display_size = {
@@ -30,9 +30,9 @@ SMODS.Joker{ --Zizou Says Sybau
     perishable_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = 'CustomJokers',
+    atlas = 'flynnatics1',
     soul_pos = {
-        x = 5,
+        x = 1,
         y = 0
     },
     in_pool = function(self, args)
@@ -44,22 +44,37 @@ SMODS.Joker{ --Zizou Says Sybau
         and true
     end,
     
+    loc_vars = function(self, info_queue, card)
+        
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_flynnset_zizousayssybau') 
+        return {vars = {card.ability.extra.Handsize, new_numerator, new_denominator}}
+    end,
+    
     calculate = function(self, card, context)
-        if context.setting_blind  and not context.blueprint then
-            if G.GAME.blind.boss then
-                return {
-                    
-                    func = function()
-                        if G.GAME.blind.in_blind then
-                            
-                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "SYBAU!!", colour = G.C.GREEN})
-                            G.GAME.blind.chips = G.GAME.blind.chips * 0.25
-                            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
-                            G.HUD_blind:recalculate()
-                            return true
+        if context.selling_card  then
+            if true then
+                if SMODS.pseudorandom_probability(card, 'group_0_e12043b3', 1, card.ability.extra.odds, 'j_flynnset_zizousayssybau', false) then
+                    SMODS.calculate_effect({func = function()
+                        
+                        local created_joker = true
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                local joker_card = SMODS.add_card({ set = 'flynnset_gimmiko' })
+                                if joker_card then
+                                    joker_card:set_edition("e_negative", true)
+                                    
+                                end
+                                
+                                return true
+                            end
+                        }))
+                        
+                        if created_joker then
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_joker'), colour = G.C.BLUE})
                         end
-                    end
-                }
+                        return true
+                    end}, card)
+                end
             end
         end
     end

@@ -1,23 +1,23 @@
 
-SMODS.Joker{ --All Kels Go To Heaven
-    key = "allkelsgotoheaven",
+SMODS.Joker{ --Gem Alert
+    key = "gemalert",
     config = {
         extra = {
-            xmult0 = 3
+            repetitions0 = 1
         }
     },
     loc_txt = {
-        ['name'] = 'All Kels Go To Heaven',
+        ['name'] = 'Gem Alert',
         ['text'] = {
-            [1] = '{X:red,C:white}X3{} Mult if played hand is {C:attention}High Card{}'
+            [1] = '{C:attention}Retrigger{} all played and scored Eyes'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
         }
     },
     pos = {
-        x = 7,
-        y = 3
+        x = 3,
+        y = 0
     },
     display_size = {
         w = 71 * 1, 
@@ -30,14 +30,15 @@ SMODS.Joker{ --All Kels Go To Heaven
     perishable_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'CustomJokers',
+    atlas = 'lookfuljokers',
     pools = { ["flynnset_flynnset_jokers"] = true },
     
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main  then
-            if context.scoring_name == "High Card" then
+        if context.repetition and context.cardarea == G.play  then
+            if context.other_card:is_suit("flynnset_eyes") then
                 return {
-                    Xmult = 3
+                    repetitions = 1,
+                    message = localize('k_again_ex')
                 }
             end
         end

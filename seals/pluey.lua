@@ -4,29 +4,34 @@ SMODS.Seal {
     pos = { x = 1, y = 0 },
     config = {
         extra = {
-            emult0 = 1.1,
-            retrigger_times0 = 1
+            currenthandsize = 0
         }
     },
-    badge_colour = HEX('000000'),
+    badge_colour = HEX('EEFF0C'),
     loc_txt = {
         name = 'pluey',
         label = 'pluey',
         text = {
-            [1] = 'a custom PLUEY with custom effects'
+            [1] = 'erm what the plue?'
         }
     },
     atlas = 'CustomSeals',
     unlocked = true,
     discovered = true,
     no_collection = false,
+    loc_vars = function(self, info_queue, card)
+        return {vars = {(((G.hand and G.hand.config.card_limit or 0) or 0)) * 0.33}}
+    end,
     calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.play then
-            card.should_retrigger = true
-            card.ability.seal.extra.retrigger_times = 1
+        if context.discard and context.other_card == card then
+            if G.hand and #G.hand.cards > 0 then
+                SMODS.draw_cards(((G.hand and G.hand.config.card_limit or 0)) * 0.33)
+            end
             return {
-                e_mult = 1.1
+                message = "+"..tostring(((G.hand and G.hand.config.card_limit or 0)) * 0.33).." Cards Drawn"
             }
         end
     end
 }
+
+
