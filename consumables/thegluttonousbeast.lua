@@ -4,7 +4,7 @@ SMODS.Consumable {
     set = 'what_are_these',
     pos = { x = 4, y = 0 },
     loc_txt = {
-        name = 'The Gluttonous Beast',
+        name = 'The Plue',
         text = {
             [1] = 'Gives selected cards in hand the Pluey seal',
             [2] = 'Adds 5 EVIL cards to deck'

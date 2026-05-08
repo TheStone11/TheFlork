@@ -4,26 +4,26 @@ SMODS.Joker{ --Flynn
     config = {
         extra = {
 
-            emult0 = 2
+            queensindeck = 0
         }
     },
     loc_txt = {
         ['name'] = 'Flynn',
         ['text'] = {
-            --EXPONENTIATION!!!!!!!! this is the ONLY joker that uses exponentiation, doing absolutely nothing if you don't have Talisman enabled
-            [1] = '{X:red,C:white}^2{} Mult',
-            [2] = '',
-            [3] = 'hey, i am flynn',
-            [4] = '',
-            [5] = 'do not sell me cro'
+            [1] = '{C:attention}+1{} hand size for every {C:attention}Queen{} in full deck',
+            [2] = '{C:inactive}(Currently #1#){}',
+            [3] = 'oh hey, i am Flynn',
+            [4] = 'I made the mod, I love myselF some selF-indulgence',
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
         }
+        
+        
     },
     pos = {
-        x = 1,
-        y = 0
+        x = 0,
+        y = 1
     },
     display_size = {
         w = 71 * 1, 
@@ -36,10 +36,10 @@ SMODS.Joker{ --Flynn
     perishable_compat = true,
     unlocked = true,
     discovered = false,
-    atlas = 'CustomJokers',
+    atlas = 'flynnatics1',
     soul_pos = {
-        x = 2,
-        y = 0
+        x = 1,
+        y = 1
     },
     in_pool = function(self, args)
         return (
@@ -49,18 +49,18 @@ SMODS.Joker{ --Flynn
         )
         and true
     end,
-    
+    loc_vars = function(self, info_queue, card)
+        
+    return {vars = {(function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 12 then count = count + 1 end end; return count end)()}}
+    end,
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main  then
-            return {
-
-                e_mult = 2,
-                message = "FLYNNTASTIC!"
-            }
-        end
-        if context.selling_self  and not context.blueprint then
-            error("die")
-            --this is fully intentional the game crashes when you try to sell Flynn because doing so would make you a horrible monster that should be ashamed of their actions
-        end
+    end,
+    
+    add_to_deck = function(self, card, from_debuff)
+    G.hand:change_size((function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 12 then count = count + 1 end end; return count end)())
+    end,
+    
+    remove_from_deck = function(self, card, from_debuff)
+    G.hand:change_size(-(function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 12 then count = count + 1 end end; return count end)())
     end
 }

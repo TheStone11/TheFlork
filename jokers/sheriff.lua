@@ -16,8 +16,8 @@ SMODS.Joker{ --Sheriff
         }
     },
     pos = {
-        x = 6,
-        y = 2
+        x = 0,
+        y = 3
     },
     display_size = {
         w = 71 * 1, 
@@ -30,10 +30,10 @@ SMODS.Joker{ --Sheriff
     perishable_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'CustomJokers',
+    atlas = 'flynnatics1',
     soul_pos = {
-        x = 7,
-        y = 2
+        x = 1,
+        y = 3
     },
     
     calculate = function(self, card, context)

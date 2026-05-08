@@ -3,13 +3,13 @@ SMODS.Joker{ --Bingus
     key = "bingus",
     config = {
         extra = {
-            xchips0 = 3
+            xchips0 = 1.5
         }
     },
     loc_txt = {
         ['name'] = 'Bingus',
         ['text'] = {
-            [1] = '{C:attention}Wild{} cards give {X:blue,C:white}X3{} Chips when scored'
+            [1] = '{C:attention}Wild{} cards give {X:blue,C:white}X1.5{} Chips when scored'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -37,7 +37,7 @@ SMODS.Joker{ --Bingus
         if context.individual and context.cardarea == G.play  then
             if SMODS.get_enhancements(context.other_card)["m_wild"] == true then
                 return {
-                    x_chips = 3
+                    x_chips = 1.5
                 }
             end
         end

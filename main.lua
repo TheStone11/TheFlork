@@ -1,3 +1,8 @@
+--HEY THERE, SNOOPER
+--YOU CAN BE HERE, EVEN LOOK AT THE WAY I DO SHIT SOMETIMES
+--JUST DON'T MESS WITH THE CODE TOO MUCH 
+--OR THE CODE WILL MESS WITH YOU 
+--:))))
 SMODS.Atlas({
     key = "modicon", 
     path = "ModIcon.png", 
@@ -5,6 +10,8 @@ SMODS.Atlas({
     py = 34,
     atlas_table = "ASSET_ATLAS"
 })
+
+local flynnsanity_mod = SMODS.current_mod
 
 SMODS.Atlas({
     key = "balatro", 
@@ -15,6 +22,26 @@ SMODS.Atlas({
     atlas_table = "ASSET_ATLAS"
 })
 
+SMODS.Atlas{
+    key = 'otherdecks',
+    path = "otherdecks.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas{
+    key = 'tarot',
+    path = "tarot.png",
+    px = 71,
+    py = 95,
+}
+
+
+
+SMODS.Atlas { key = 'lc_cards', path = 'newsuit.png', px = 71, py = 95 }
+SMODS.Atlas { key = 'hc_cards', path = 'newsuitHC.png', px = 71, py = 95 }
+SMODS.Atlas { key = 'lc_ui', path = 'UIAssets.png', px = 18, py = 18 }
+SMODS.Atlas { key = 'hc_ui', path = 'UIAssets.png', px = 18, py = 18 }
 
 SMODS.Atlas({
     key = "CustomJokers", 
@@ -57,17 +84,35 @@ SMODS.Atlas({
     atlas_table = "ASSET_ATLAS"
 }) 
 
+
+
 SMODS.Atlas({
-    key = "CustomEnhancements", 
-    path = "CustomEnhancements.png", 
+    key = "CustomJokers2", 
+    path = "jokers2revengeoftherobots.png", 
     px = 71,
     py = 95, 
     atlas_table = "ASSET_ATLAS"
 })
 
 SMODS.Atlas({
-    key = "CustomJokers2", 
-    path = "jokers2revengeoftherobots.png", 
+    key = "lookfuljokers", 
+    path = "lookfuljokers.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
+    key = "flynnatics1", 
+    path = "Flynnatics.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
+    key = "flynnatics2", 
+    path = "Flynnatics2.png", 
     px = 71,
     py = 95, 
     atlas_table = "ASSET_ATLAS"
@@ -90,6 +135,15 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "flynnswife", 
+    path = "hapoten.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
+
+SMODS.Atlas({
     key = "vouchers", 
     path = "vouchers.png", 
     px = 71,
@@ -110,7 +164,7 @@ to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
 --jonklers load order
-local jokerIndexList = {6,10,49,34,21,53,54,55,56,57,58,59,60,61,18,20,48,42,52,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
+local jokerIndexList = {6,10,49,34,21,52,18,20,48,42,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,27,17,23}
 --local jokerIndexList = {6,10,49,34,21,18,20,48,42,52,53,54,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
 
 
@@ -126,8 +180,33 @@ local function load_jokers_folder()
     end
 end
 
+local eyes = SMODS.Suit {
+    key = 'eyes',
+    card_key = 'EYES',
+    hc_atlas = 'hc_cards',
+    lc_atlas = 'lc_cards',
+    hc_ui_atlas = 'hc_ui',
+    lc_ui_atlas = 'lc_ui',
+    pos = { y = 0 },
+    ui_pos = { x = 0, y = 0 },
+    hc_colour = HEX('7F83A7'),
+    lc_colour = HEX('7E8AF9'),
+    in_pool = function(self, args)
+        if args and args.initial_deck then
+            return false
+        end
+    end,
+}
 
-local consumableIndexList = {3,1,5,4,2}
+--:eyes: cards are by design undebuffable, i don't know if they can be ultradebuffed by UNIK's Mod, a side benefit is that wild cards cannot be debuffed either, being a rather welcome buff to an otherwise shitty enhancement
+SMODS.current_mod.set_debuff = function(card)
+    --if SMODS.is_suit(card, "flynnset_EYES") then
+    if card:is_suit("flynnset_EYES") then
+       return "prevent_debuff"
+    end
+end
+
+local consumableIndexList = {3,1,5,6,4,2}
 
 local function load_consumables_folder()
     local mod_path = SMODS.current_mod.path
@@ -175,7 +254,7 @@ end
 
 load_rarities_file()
 
-
+--"Delicacy" poker hand, still not complete
 --assert(SMODS.load_file("pokerhands.lua"))()
 
 local function load_boosters_file()
@@ -186,7 +265,7 @@ end
 
 --This loads the legendary jokers 
 assert(SMODS.load_file("redfix.lua"))()
-assert(SMODS.load_file("yellofix.lua"))()
+--assert(SMODS.load_file("yellofix.lua"))() Yellofix was originally added as my friend's OC, but turned out to be a total asshole
 assert(SMODS.load_file("sunthing.lua"))()
 assert(SMODS.load_file("murderguy.lua"))()
 assert(SMODS.load_file("jaymon.lua"))()
@@ -199,14 +278,11 @@ assert(SMODS.load_file("sounds.lua"))()
 --hapoten is your favorite character (not up for debate)
 assert(SMODS.load_file("hapodeck.lua"))()
 
---the evil and fucked-up file from hell that makes jumpscares, shoutouts to Nxkoo for giving me the code for this file, WE love you Nxkoo
-assert(SMODS.load_file("jumpscare.lua")) 
-
 --flynn when the hell did i make a freaky deck man that's wild
 assert(SMODS.load_file("freakydeck.lua"))()
 
---this deck doesn't support Zizou
-assert(SMODS.load_file("zizoudeck.lua"))()
+--this loads all other decks
+assert(SMODS.load_file("otherdecks.lua"))()
 
 --flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
 assert(SMODS.load_file("flynndeck.lua"))()
