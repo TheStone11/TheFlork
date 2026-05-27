@@ -1,5 +1,5 @@
 
-SMODS.Joker{ --Zizou Says Sybau
+SMODS.Joker{ 
     key = "zizousayssybau",
     config = {
         extra = {

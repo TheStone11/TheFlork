@@ -36,6 +36,13 @@ SMODS.Atlas{
     py = 95,
 }
 
+SMODS.Atlas{
+    key = 'lookatme',
+    path = "lookatme.png",
+    px = 71,
+    py = 95,
+}
+
 
 
 SMODS.Atlas { key = 'lc_cards', path = 'newsuit.png', px = 71, py = 95 }
@@ -103,8 +110,32 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "burgerstake",
+    path = "burgerstake.png",
+    px = 29,
+    py = 29,
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
+    key = "weightysticker",
+    path = "weightysticker.png",
+    px = 71,
+    py = 95,
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
     key = "flynnatics1", 
     path = "Flynnatics.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Atlas({
+    key = "minusb", 
+    path = "minusb.png", 
     px = 71,
     py = 95, 
     atlas_table = "ASSET_ATLAS"
@@ -164,8 +195,8 @@ to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
 --jonklers load order
-local jokerIndexList = {6,10,49,34,21,52,18,20,48,42,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,27,17,23}
---local jokerIndexList = {6,10,49,34,21,18,20,48,42,52,53,54,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,52,27,17,23}
+--local jokerIndexList = {6,10,49,34,21,52,18,20,48,42,41,29,4,47,22,5,13,11,40,38,35,25,26,45,37,3,16,1,44,39,51,9,19,2,15,33,24,50,43,36,31,32,14,46,28,7,12,27,17,23}
+local jokerIndexList = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56}
 
 
 local function load_jokers_folder()
@@ -233,6 +264,8 @@ end
 
 
 
+
+
 local sealIndexList = {2,1}
 
 local function load_seals_folder()
@@ -254,6 +287,8 @@ end
 
 load_rarities_file()
 
+assert(SMODS.load_file("ibeatmymeattohapoten.lua"))()
+
 --"Delicacy" poker hand, still not complete
 --assert(SMODS.load_file("pokerhands.lua"))()
 
@@ -262,13 +297,15 @@ local function load_boosters_file()
     assert(SMODS.load_file("boosters.lua"))()
 end
 
-
+--assert(SMODS.load_file("burger.lua"))()
+--assert(SMODS.load_file("sticker.lua"))()
 --This loads the legendary jokers 
 assert(SMODS.load_file("redfix.lua"))()
 --assert(SMODS.load_file("yellofix.lua"))() Yellofix was originally added as my friend's OC, but turned out to be a total asshole
 assert(SMODS.load_file("sunthing.lua"))()
 assert(SMODS.load_file("murderguy.lua"))()
 assert(SMODS.load_file("jaymon.lua"))()
+--assert(SMODS.load_file("lovely.toml"))()
 
 assert(SMODS.load_file("lucky_penny.lua"))()
 assert(SMODS.load_file("donation_box.lua"))()
@@ -278,11 +315,10 @@ assert(SMODS.load_file("sounds.lua"))()
 --hapoten is your favorite character (not up for debate)
 assert(SMODS.load_file("hapodeck.lua"))()
 
---flynn when the hell did i make a freaky deck man that's wild
-assert(SMODS.load_file("freakydeck.lua"))()
 
 --this loads all other decks
 assert(SMODS.load_file("otherdecks.lua"))()
+
 
 --flynn deck because i made the mod and i want a deck named after me because i am lowkey narcissistic
 assert(SMODS.load_file("flynndeck.lua"))()
@@ -350,7 +386,7 @@ SMODS.ObjectType({
         ["j_flynnset_themiko"] = true,
         ["j_flynnset_themouth"] = true,
         ["j_flynnset_theplant"] = true,
-        ["j_flynnset_zizou"] = true,
+        --["j_flynnset_zizou"] insult isn't relevant since me and big Z are fine now, still Zizou got reworked and this shouldn't be uncommented
         ["j_flynnset_zo"] = true,
         ["j_flynnset_flynnling"] = true,
         ["j_flynnset_yukionna"] = true,

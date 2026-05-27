@@ -33,3 +33,17 @@ SMODS.Sound({
         return false
     end
 })
+
+SMODS.Sound({
+        key = "music_minusb",
+        path = "minus-b.ogg", --Music by Lil Yappa
+        sync = false,
+        pitch = 1,
+        select_music_track = function()
+        if not (G.jokers and G.jokers.cards) then return false end
+        for _,joker in ipairs(G.jokers.cards) do
+           if joker.config.center.rarity == "flynnset_minusb" then return true end
+        end
+        return false
+    end
+})

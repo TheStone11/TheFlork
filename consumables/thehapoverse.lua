@@ -9,7 +9,7 @@ SMODS.Consumable {
     loc_txt = {
         name = 'The Hapoverse',
         text = {
-        [1] = 'Levels ups all hands, creates an EVIL Joker',
+        [1] = 'Levels ups a random hand thrice',
         [2] = '{C:inactive}Welcome to the hapoverse, young hapoling{}'
     }
     },

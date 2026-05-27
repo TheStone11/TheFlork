@@ -27,6 +27,7 @@ SMODS.Joker{ --Zo
     },
     cost = 6,
     rarity = 3,
+    pronouns = "she_her", 
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
