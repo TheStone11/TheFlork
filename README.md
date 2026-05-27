@@ -1,5 +1,5 @@
 # flynnsanity
-shitpost with over 40 jonklers, new consumable set, 4 decks, and... tags???
+shitpost with over 40 jonklers, new consumable set, 4 decks, and... a new suit?
 
 CREDITS
 
@@ -11,7 +11,7 @@ Sophie - didn't do shit for the mod but she's my dog
 
 Astro - really cool guy, helped me sometimes
 
-Zizou - i am legally forced to credit him because of the gimmiko jokers, since Zizou made Gimmiko, he's lowk a weirdo tho
+Zizou - he made Gimmiko
 
 Yahiamice - guy who inspired Flynnsanitus
 
