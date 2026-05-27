@@ -52,4 +52,26 @@ SMODS.Back {
         }))
  
     end,
+    
+}
+
+SMODS.Back{
+    name = "-b",
+    key = "minusbeck",
+    atlas = "minusb",
+    pos = {x = 0, y = 0},
+    loc_txt = {
+        name ="-b",
+        text={
+            "-b",
+        },
+    },
+    apply = function(self)
+        G.E_MANAGER:add_event(Event( {
+            func = function()
+                SMODS.add_card{key = "j_flynnset_minusb"}
+                return true
+            end
+        }))
+    end
 }

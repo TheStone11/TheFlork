@@ -24,6 +24,7 @@ SMODS.Joker{ --White Face
     },
     cost = 4,
     rarity = 1,
+    pronouns = "it_its", 
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
